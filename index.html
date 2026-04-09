@@ -4,25 +4,112 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>TOTAL FRUIT</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#000;color:#fff;font-family:'Poppins',sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;text-align:center;padding:20px}
-.logo{width:280px;max-width:80%;margin-bottom:20px;filter:drop-shadow(0 0 25px rgba(255,215,0,0.35))}
+_{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#000;color:#fff;font-family:'Poppins',sans-serif}
+.navbar{position:fixed;top:0;left:0;width:100%;background:rgba(0,0,0,0.8);backdrop-filter:blur(10px);padding:15px 25px;z-index:998;display:flex;gap:25px}
+.navbar a{color:#ccc;text-decoration:none;font-weight:600;font-size:0.95rem;transition:0.3s}
+.navbar a:hover{color:#FFD700}
+.logo-top{position:fixed;top:12px;right:20px;width:50px;height:auto;z-index:999;filter:drop-shadow(0 0 12px rgba(255,215,0,0.5));background:transparent}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center}
+h1{font-family:'Cinzel',serif;font-size:3.2rem;font-weight:700;letter-spacing:4px;background:linear-gradient(90deg,#FFD700,#FFA500);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;text-shadow:0 0 30px rgba(255,215,0,0.3)}
 p{color:#ccc;margin-bottom:30px;max-width:500px;line-height:1.6;font-size:1.1rem}
 .btn{background:linear-gradient(90deg,#FFD700,#FFA500);color:#000;padding:14px 32px;border:none;border-radius:30px;font-weight:600;font-size:1rem;cursor:pointer;text-decoration:none;transition:0.3s}
 .btn:hover{opacity:0.85;transform:translateY(-2px)}
+section{padding:100px 20px;max-width:700px;margin:0 auto;text-align:center}
+section h2{font-family:'Cinzel',serif;font-size:2rem;color:#FFD700;margin-bottom:25px}
+
+/_ MENU ACCORDION */
+.menu-cat{background:#111;border:1px solid #333;border-radius:12px;margin-bottom:15px;overflow:hidden;text-align:left}
+.menu-cat button{width:100%;background:transparent;border:none;color:#FFD700;font-size:1.1rem;font-weight:600;padding:18px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.menu-cat button:hover{background:#151515}
+.menu-cat button span{transition:0.3s}
+.menu-cat.active button span{transform:rotate(45deg)}
+.menu-list{max-height:0;overflow:hidden;transition:max-height 0.3s ease;padding:0 20px}
+.menu-cat.active .menu-list{max-height:500px;padding:0 20px 15px}
+.menu-item{padding:12px 0;border-bottom:1px solid #222;display:flex;justify-content:space-between}
+.menu-item:last-child{border-bottom:none}
+.menu-item h4{color:#fff;font-weight:500;font-size:1rem}
+.menu-item p{color:#FFD700;margin:0;font-size:0.95rem}
+
+footer{background:#0a0a0a;padding:40px 20px;text-align:center;border-top:1px solid #222;margin-top:60px}
+footer p{color:#999;margin:8px 0;font-size:0.95rem}
+footer a{color:#FFD700;text-decoration:none}
+footer a:hover{text-decoration:underline}
 .wa-float{position:fixed;bottom:25px;right:25px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(37,211,102,0.4);transition:0.3s;z-index:999}
 .wa-float:hover{transform:scale(1.1)}
 .wa-float svg{width:32px;height:32px;fill:#fff}
 </style>
 </head>
 <body>
-<img src="logo.png" alt="Total Fruit Logo" class="logo">
+<div class="navbar">
+<a href="#home">Home</a>
+<a href="#tentang">About Us</a>
+<a href="#menu">Menu</a>
+</div>
+
+<img src="logo.png" alt="Total Fruit" class="logo-top">
+
+<div class="hero" id="home">
+<h1>TOTAL FRUIT</h1>
 <p><strong>Signature Gold Edition</strong><br>
-Taste the health, feel the cloud. Buah potong premium dengan sensasi gourmet yang beda.</p>
+Taste the health, feel the cloud. Premium cut fruit with a gourmet experience.</p>
 <a href="#menu" class="btn">LIHAT MENU</a>
+</div>
+
+<section id="tentang">
+<h2>ABOUT US</h2>
+<p>TOTAL FRUIT is not your ordinary fruit bowl. We serve handpicked premium fruits, prepared with hygiene and care, finished with our signature gold dressing and gourmet toppings. Healthy, fresh, and luxurious — this is <span style="color:#FFD700;">Signature Gold Edition</span>. Made for those who want more than just a snack.</p>
+</section>
+
+<section id="menu">
+<h2>MENU KAMI</h2>
+
+<div class="menu-cat">
+<button>JUS <span>+</span></button>
+<div class="menu-list">
+<div class="menu-item"><h4>Jus Mangga Gold</h4><p>22K</p></div>
+<div class="menu-item"><h4>Jus Alpukat Premium</h4><p>25K</p></div>
+<div class="menu-item"><h4>Jus Naga Merah</h4><p>20K</p></div>
+</div>
+</div>
+
+<div class="menu-cat">
+<button>GOURMET <span>+</span></button>
+<div class="menu-list">
+<div class="menu-item"><h4>Mango Sticky Rice</h4><p>35K</p></div>
+<div class="menu-item"><h4>Fruit Sando</h4><p>28K</p></div>
+</div>
+</div>
+
+<div class="menu-cat">
+<button>DESSERT <span>+</span></button>
+<div class="menu-list">
+<div class="menu-item"><h4>Es Teler Sultan Signature Gold</h4><p>38K</p></div>
+</div>
+</div>
+
+</section>
+
+<footer>
+<p><strong style="color:#FFD700">TOTAL FRUIT</strong></p>
+<p>Location: Cigeulis, Banten</p>
+<p>Instagram: <a href="https://instagram.com/totalfruit.id" target="_blank">@totalfruit.id</a></p>
+<p style="margin-top:15px;font-size:0.85rem;color:#666">© 2026 TOTAL FRUIT. All rights reserved.</p>
+</footer>
+
 <a href="https://wa.me/6285124441513?text=Halo%20TOTAL%20FRUIT,%20mau%20order%20dong" target="_blank" class="wa-float" aria-label="Chat WhatsApp">
-<svg viewBox="0 0 32 32"><path d="M16 0C7.2 0 0 7.2 0 16c0 2.8.7 5.5 2.1 7.9L0 32l8.3-2.2C10.6 31.3 13.3 32 16 32c8.8 0 16-7.2 16-16S24.8 0 16 0zm0 29.3c-2.4 0-4.7-.6-6.8-1.8l-.5-.3-4.9 1.3 1.3-4.8-.3-.5c-1.3-2.1-2-4.5-2-7 0-7.3 6-13.3 13.3-13.3S29.3 8.7 29.3 16 23.3 29.3 16 29.3zm7.3-9.9c-.4-.2-2.3-1.1-2.7-1.2-.4-.1-.6-.2-.9.2-.3.4-1 1.2-1.2 1.5-.2.3-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.4-2-3.1-2.2-3.5-.2-.4 0-.6.2-.8.2-.2.4-.5.5-.7.2-.2.3-.4.4-.6.1-.2.1-.5 0-.7-.1-.2-.9-2.1-1.2-2.9-.3-.7-.6-.6-.8-.6h-.7c-.3 0-.7.1-1 .5-.4.4-1.3 1.3-1.3 3.1s1.4 3.6 1.6 3.9c.2.3 2.7 4.1 6.5 5.7 3.8 1.6 3.8 1.1 4.5 1 .7-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.1-.4-.2-.8-.4z"/></svg>
+<svg viewBox="0 0 32 32"><path d="M16 0C7.2 0 0 7.2 0 16c0 2.8.7 5.5 2.1 7.9L0 32l8.3-2.2C10.6 31.3 13.3 32 16 32c8.8 0 16-7.2 16-16S24.8 0 16 0zm0 29.3c-2.4 0-4.7-.6-6.8-1.8l-.5-.3-4.9 1.3-4.8-.3-.5c-1.3-2.1-2-4.5-2-7 0-7.3 6-13.3 13.3-13.3S29.3 8.7 29.3 16 23.3 29.3 16 29.3zm7.3-9.9c-.4-.2-2.3-1.1-2.7-1.2-.4-.1-.6-.2-.9.2-.3.4-1 1.2-1.2 1.5-.2.3-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.4-2-3.1-2.2-3.5-.2-.4 0-.6.2-.8.2-.2.4-.5.5-.7.2-.2.3-.4.4-.6.1-.2.1-.5 0-.7-.1-.2-.9-2.1-1.2-2.9-.3-.7-.6-.6-.8-.6h-.7c-.3 0-.7.1-1 .5-.4.4-1.3 1.3-1.3 3.1s1.4 3.6 1.6 3.9c.2.3 2.7 4.1 6.5 5.7 3.8 1.6 3.8 1.1 4.5 1 .7-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.1-.4-.2-.8-.4z"/></svg>
 </a>
+
+<script>
+http://document.querySelectorAll('.menu-cat button').forEach(btn=>{
+http://btn.addEventListener('click',()=>{
+http://btn.parentElement.classList.toggle('active');
+});
+});
+</script>
 </body>
 </html>
