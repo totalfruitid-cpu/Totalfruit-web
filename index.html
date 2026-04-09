@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Total Fruit - Premium Gourmet</title>
+<style>
+:root{
+  --gold:#D4AF37;
+  --dark:#0a0a0a;
+  --dark2:#111;
+  --white:#f5f5f5;
+}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{background:var(--dark);color:var(--white);font-family:'Helvetica Neue',Arial,sans-serif;line-height:1.6}
+nav{position:fixed;top:0;width:100%;background:rgba(10,10,10,.9);backdrop-filter:blur(10px);z-index:999;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #222}
+nav .brand{font-weight:700;letter-spacing:3px;color:var(--gold)}
+nav ul{display:flex;gap:25px;list-style:none}
+nav a{color:var(--white);text-decoration:none;font-size:14px;letter-spacing:1px;transition:.3s}
+nav a:hover{color:var(--gold)}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0 20px;background:radial-gradient(circle at top,var(--dark2),var(--dark))}
+.hero h1{font-size:clamp(32px,8vw,60px);letter-spacing:5px;color:var(--gold);text-shadow:0 0 20px rgba(212,175,55,.3)}
+.hero p{max-width:500px;margin:20px 0 30px;color:#bbb;letter-spacing:1px}
+.btn{background:var(--gold);color:var(--dark);padding:14px 30px;border:none;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:.3s;text-decoration:none;display:inline-block}
+.btn:hover{box-shadow:0 0 20px rgba(212,175,55,.6);transform:translateY(-2px)}
+section{padding:80px 5%}
+h2{font-size:28px;text-align:center;margin-bottom:40px;letter-spacing:3px;color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;max-width:1100px;margin:auto}
+.card{background:var(--dark2);border:1px solid #222;padding:25px;border-radius:10px;text-align:center;transition:.3s}
+.card:hover{border-color:var(--gold);transform:translateY(-5px)}
+.card h3{color:var(--gold);margin:15px 0 10px;font-size:18px}
+.card p{font-size:14px;color:#aaa}
+.about{max-width:800px;margin:auto;text-align:center;color:#bbb}
+footer{background:var(--dark2);text-align:center;padding:40px 20px;border-top:1px solid #222}
+footer a{color:var(--gold);text-decoration:none}
+.wa-fixed{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;box-shadow:0 5px 15px rgba(0,0,0,.4);z-index:999}
+</style>
+</head>
+<body>
+<nav>
+<div class="brand">TOTAL FRUIT</div>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#produk">Produk</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#kontak">Kontak</a></li>
+</ul>
+</nav>
+<section class="hero" id="home">
+<h1>TOTAL FRUIT</h1>
+<p>Signature Gold Edition — Taste the health, feel the cloud. Buah potong premium dengan sensasi gourmet yang beda.</p>
+<a href="#produk" class="btn">Lihat Menu</a>
+</section>
+<section id="produk">
+<h2>SIGNATURE SERIES</h2>
+<div class="grid">
+<div class="card"><h3>Gold Salad</h3><p>Mix buah premium + dressing yoghurt honey. Seger & sehat.</p></div>
+<div class="card"><h3>Cloud Bowl</h3><p>Buah potong + es krim vanilla + topping gold flakes.</p></div>
+<div class="card"><h3>Tropic Fusion</h3><p>Mangga, nanas, kiwi, strawberry dengan sirup lemon mint.</p></div>
+</div>
+</section>
+<section id="about">
+<h2>KENAPA TOTAL FRUIT?</h2>
+<p class="about">Kami pilih buah grade A setiap hari, dipotong fresh by order, tanpa pengawet. Packaging premium biar kamu ngerasain experience beda dari salad buah biasa. <br><br><span style="color:var(--gold)">taste the health • feel the cloud</span></p>
+</section>
+<footer id="kontak">
+<p>Order via WhatsApp: <a href="https://wa.me/628123456789">+62 812-3456-789</a></p>
+<p>Instagram: <a href="https://instagram.com/totalfruit.id">@totalfruit.id</a></p>
+<p style="margin-top:20px;font-size:11px;color:#555">TOTAL FRUIT © 2026</p>
+</footer>
+<a href="https://wa.me/628123456789" class="wa-fixed">WA</a>
+</body>
+</html>
