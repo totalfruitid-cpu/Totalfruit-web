@@ -137,7 +137,12 @@ footer a:hover{text-decoration:underline}
 <a href="#home">Home</a>
 <a href="#tentang">About Us</a>
 <a href="#menu">Menu</a>
-<button onclick="switchLang()" id="langBtn" style="background: none; border: 1px solid #D4AF37; color: #D4AF37; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-weight: bold;">ID</button>
+<div id="langBtn" style="margin-left: auto; font-weight: bold; color: #D4AF37; cursor: pointer; user-select: none;">
+<span onclick="switchLang('id')" id="btn-id" style="opacity: 0.5;">ID</span>
+<span style="margin: 0 5px; opacity: 0.5;">/</span>
+<span onclick="switchLang('en')" id="btn-en" style="opacity: 1;">EN</span>
+</div>
+</div>
 </div>
 
 <img src="logo.png" alt="Total Fruit" class="logo-top">
@@ -151,12 +156,14 @@ footer a:hover{text-decoration:underline}
 </div>
 
 <section id="tentang">
-<h2>ABOUT US</h2>
-<p>TOTAL FRUIT is not your ordinary fruit bowl. We serve handpicked premium fruits, prepared with hygiene and care, finished with our signature gold dressing and gourmet toppings. Healthy, fresh, and luxurious — this is <span style="color:#FFD700;">Signature Gold Edition</span>. Made for those who want more than just a snack.</p>
+  <h2 id="about-title">ABOUT US</h2>
+  <p id="about-text">TOTAL FRUIT is not your ordinary fruit bowl. We serve handpicked premium fruits, prepared with hygiene and care, finished with our signature gold dressing and gourmet toppings. Healthy, fresh, and luxurious – this is <span style="color:#FFD700;">Signature Gold Edition</span>. Made for those who want more than just a snack.</p>
 </section>
+
 <section id="menu" style="padding: 60px 20px; background: #0a0a0a; text-align: center;">
-  <h2 style="color: #D4AF37; font-size: 36px; margin-bottom: 10px;">JUICE</h2>
-  <p style="color: #aaa; margin-bottom: 40px;">100% Natural ingredients, no artificial coloring or flavors</p>
+  <h2 id="juice-title" style="color: #D4AF37; font-size: 36px; margin-bottom: 10px;">JUICE</h2>
+  <p id="juice-text" style="color: #aaa; margin-bottom: 40px;">100% Natural ingredients, no artificial coloring or flavors</p>
+</section>
   
 <!-- Section Tombol Kategori -->
 <div style="display: flex; gap: 15px; justify-content: center; max-width: 900px; margin: 0 auto 60px auto; flex-wrap: wrap;">
@@ -299,6 +306,34 @@ window.onclick = function(event) {
   if (event.target.classList.contains('modal')) {
     event.target.style.display = 'none';
     document.body.style.overflow = 'auto';
+  }
+}
+<script>
+let currentLang = 'en';
+
+const translations = {
+  en: {
+    'about-title': 'ABOUT US',
+    'about-text': 'TOTAL FRUIT is not your ordinary fruit bowl. We serve handpicked premium fruits, prepared with hygiene and care, finished with our signature gold dressing and gourmet toppings. Healthy, fresh, and luxurious – this is <span style="color:#FFD700;">Signature Gold Edition</span>. Made for those who want more than just a snack.',
+    'juice-title': 'JUICE',
+    'juice-text': '100% Natural ingredients, no artificial coloring or flavors'
+  },
+  id: {
+    'about-title': 'TENTANG KAMI',
+    'about-text': 'TOTAL FRUIT bukan fruit bowl biasa. Kami menyajikan buah-buahan premium pilihan terbaik, diolah dengan higienis dan penuh perhatian, disempurnakan dengan dressing emas khas kami dan topping gourmet. Sehat, segar, dan mewah — inilah <span style="color:#FFD700;">Signature Gold Edition</span>. Dibuat untuk kamu yang menginginkan lebih dari sekadar camilan.',
+    'juice-title': 'JUS',
+    'juice-text': '100% Bahan alami, tanpa pewarna atau perasa buatan'
+  }
+};
+
+function switchLang(lang) {
+  currentLang = lang;
+  document.getElementById('btn-id').style.opacity = lang === 'id'? '1' : '0.5';
+  document.getElementById('btn-en').style.opacity = lang === 'en'? '1' : '0.5';
+
+  for (const id in translations[currentLang]) {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = translations[currentLang][id];
   }
 }
 </script>
