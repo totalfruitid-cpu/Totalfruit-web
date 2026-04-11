@@ -372,6 +372,12 @@ footer a:hover{text-decoration:underline}
       if (el) el.innerHTML = translations[currentLang][id];
     }
   }
+// Pasang event listener ke tombol
+document.getElementById('btn-id').addEventListener('click', () => switchLang('id'));
+document.getElementById('btn-en').addEventListener('click', () => switchLang('en'));
+
+// Jalanin sekali pas web dibuka, default EN
+switchLang('en');
 </script>
 </body>
 </html>
