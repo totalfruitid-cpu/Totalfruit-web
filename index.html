@@ -330,7 +330,16 @@ const translations = {
     'juice-text': '100% Bahan alami, tanpa pewarna atau perasa buatan'
   }
 };
-
+<script>
+  // Script buat buka-tutup accordion menu
+  const accordionBtns = document.querySelectorAll('.menu-cat button');
+  
+  accordionBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const menuCat = btn.parentElement;
+      menuCat.classList.toggle('active');
+    });
+  });
 function switchLang(lang) {
   currentLang = lang;
   document.getElementById('btn-id').style.opacity = lang === 'id'? '1' : '0.5';
