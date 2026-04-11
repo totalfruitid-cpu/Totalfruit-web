@@ -172,16 +172,16 @@ footer a:hover{text-decoration:underline}
 </div>
 
 <div class="hero">
-  <h1 class="title crown-l">TOTAL FRUIT</h1>
-  <p class="tagline">Taste the health, feel the cloud.</p>
-  <p>Signature Gold Edition</p>
-  <p>Premium cut fruit with a gourmet experience.</p>
-  <a href="#menu" class="btn">LIHAT MENU</a>
+  <h1 class="title crown-l" data-i18n="hero-title">TOTAL FRUIT</h1>
+  <p class="tagline" data-i18n="hero-tagline">Taste the health, feel the cloud.</p>
+  <p data-i18n="hero-sub">Signature Gold Edition</p>
+  <p data-i18n="hero-desc">Premium cut fruit with a gourmet experience.</p>
+  <a href="#menu" class="btn" data-i18n="hero-btn">LIHAT MENU</a>
 </div>
 
 <section id="tentang">
-  <h2 id="about-title">ABOUT US</h2>
-  <p id="about-text">TOTAL FRUIT is not your ordinary fruit bowl. We serve handpicked premium fruits, prepared with hygiene and care, finished with our signature gold dressing and gourmet toppings. Healthy, fresh, and luxurious – this is <span style="color:#FFD700;">Signature Gold Edition</span>. Made for those who want more than just a snack.</p>
+  <h2 id="about-title" data-i18n="about-title">ABOUT US</h2>
+  <p id="about-text" data-i18n="about-text">TOTAL FRUIT is not your ordinary fruit bowl. We serve handpicked premium fruits, prepared with hygiene and care, finished with our signature gold dressing and gourmet toppings. Healthy, fresh, and luxurious – this is TOTAL FRUIT</p>
 </section>
 
 <section id="menu" style="padding: 60px 20px; background: #0a0a0a; text-align: center;">
@@ -347,19 +347,29 @@ footer a:hover{text-decoration:underline}
     // 4. GANTI BAHASA
   let currentLang = 'en';
   const translations = {
-    en: {
+  en: {
+    'hero-title': 'TOTAL FRUIT',
+    'hero-tagline': 'Taste the health, feel the cloud.',
+    'hero-sub': 'Signature Gold Edition',
+    'hero-desc': 'Premium cut fruit with a gourmet experience.',
+    'hero-btn': 'SEE MENU',
     'about-title': 'ABOUT US',
     'about-text': 'TOTAL FRUIT is not your ordinary fruit bowl. We are a curated experience of tropical indulgence, delivered straight to your doorstep in Dubai. Born from a passion for vibrant flavors and wholesome living, we source only the freshest, premium fruits to craft bowls that are as beautiful as they are nourishing.',
     'menu-title': 'OUR MENU',
     'contact-title': 'CONTACT US'
   },
   id: {
+    'hero-title': 'TOTAL FRUIT',
+    'hero-tagline': 'Rasakan sehatnya, nikmati kelembutannya.',
+    'hero-sub': 'Signature Gold Edition',
+    'hero-desc': 'Potongan buah premium dengan pengalaman gourmet.',
+    'hero-btn': 'LIHAT MENU',
     'about-title': 'TENTANG KAMI',
     'about-text': 'TOTAL FRUIT bukan mangkok buah biasa. Kami adalah pengalaman kurasi kemewahan tropis, diantar langsung ke depan pintu Anda di Dubai. Lahir dari hasrat akan rasa yang segar dan hidup yang sehat, kami hanya memilih buah-buahan premium yang paling segar untuk meracik mangkok yang cantik sekaligus menyehatkan.',
     'menu-title': 'MENU KAMI',
     'contact-title': 'HUBUNGI KAMI'
   }
-  };
+};
   let currentLang = 'en';
 function switchLang(lang) {
   currentLang = lang;
