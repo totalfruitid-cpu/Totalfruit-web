@@ -331,19 +331,23 @@ const translations = {
   }
 };
 <script>
-  // Script buat buka-tutup accordion menu
-  const accordionBtns = document.querySelectorAll('.menu-cat button');
-  
-  accordionBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const menuCat = btn.parentElement;
-      menuCat.classList.toggle('active');
+  document.addEventListener('DOMContentLoaded', function() {
+    // Script buat buka-tutup accordion menu
+    const accordionBtns = document.querySelectorAll('.menu-cat button');
+    
+    accordionBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const menuCat = btn.parentElement;
+        menuCat.classList.toggle('active');
+      });
     });
   });
-function switchLang(lang) {
-  currentLang = lang;
-  document.getElementById('btn-id').style.opacity = lang === 'id'? '1' : '0.5';
-  document.getElementById('btn-en').style.opacity = lang === 'en'? '1' : '0.5';
+
+  // Script ganti bahasa
+  function switchLang(lang) {
+    currentLang = lang;
+    document.getElementById('btn-id').style.opacity = lang === 'id'? '1' : '0.5';
+    document.getElementById('btn-en').style.opacity = lang === 'en'? '1' : '0.5';
 
   for (const id in translations[currentLang]) {
     const el = document.getElementById(id);
