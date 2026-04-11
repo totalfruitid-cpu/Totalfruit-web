@@ -385,6 +385,22 @@ footer a:hover{text-decoration:underline}
     document.getElementById(modalId).style.display = 'none';
     document.body.style.overflow = 'auto'; // Balikin scroll
   }
+function openModal(modalId) {
+  document.getElementById(modalId).style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(modalId) {
+  document.getElementById(modalId).style.display = 'none';
+  document.body.style.overflow = 'auto';
+}
+
+function openDessertModal(title, price) {
+  document.getElementById('dessert-modal-title').innerText = title;
+  document.getElementById('dessert-modal-price').innerText = price;
+  document.getElementById('dessertModal').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
 
     // 4. GANTI BAHASA
   const translations = {
