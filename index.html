@@ -313,7 +313,7 @@ footer a:hover{text-decoration:underline}
 <a href="https://wa.me/6285124441513?text=Halo%20TOTAL%20FRUIT,%20mau%20order%20dong" target="_blank" class="wa-float" aria-label="Chat WhatsApp">
 <svg viewBox="0 0 32 32"><path d="M16 0C7.2 0 0 7.2 0 16c0 2.8.7 5.5 2.1 7.9L0 32l8.3-2.2C10.6 31.3 13.3 32 16 32c8.8 0 16-7.2 16-16S24.8 0 16 0zm0 29.3c-2.4 0-4.7-.6-6.8-1.8l-.5-.3-4.9 1.3-4.8-.3-.5c-1.3-2.1-2-4.5-2-7 0-7.3 6-13.3 13.3-13.3S29.3 8.7 29.3 16 23.3 29.3 16 29.3zm7.3-9.9c-.4-.2-2.3-1.1-2.7-1.2-.4-.1-.6-.2-.9.2-.3.4-1 1.2-1.2 1.5-.2.3-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.4-2-3.1-2.2-3.5-.2-.4 0-.6.2-.8.2-.2.4-.5.5-.7.2-.2.3-.4.4-.6.1-.2.1-.5 0-.7-.1-.2-.9-2.1-1.2-2.9-.3-.7-.6-.6-.8-.6h-.7c-.3 0-.7.1-1 .5-.4.4-1.3 1.3-1.3 3.1s1.4 3.6 1.6 3.9c.2.3 2.7 4.1 6.5 5.7 3.8 1.6 3.8 1.1 4.5 1 .7-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.1-.4-.2-.8-.4z"/></svg>
 </a>
-<script>
+  <script>
   // JALANIN PAS HALAMAN SELESAI LOAD
   document.addEventListener('DOMContentLoaded', function() {
     // 1. ACCORDION MENU
@@ -344,21 +344,24 @@ footer a:hover{text-decoration:underline}
     document.body.style.overflow = 'auto'; // Balikin scroll
   }
 
-  // 4. GANTI BAHASA
+    // 4. GANTI BAHASA
   let currentLang = 'en';
   const translations = {
-    // COPY SEMUA ISI translations LU DARI BARIS 338 SAMPE SEBELUM };
-    // Contoh:
     en: {
       'about-title': 'ABOUT US',
-      'about-text': 'TOTAL FRUIT is not your ordinary fruit bowl...',
-      //...lanjutkan semua kode translations lu...
+      'about-text': 'TOTAL FRUIT is not your ordinary fruit bowl. We are a curated experience of tropical indulgence, delivered straight to your doorstep in Dubai. Born from a passion for vibrant flavors and wholesome living, we source only the freshest, premium fruits to craft bowls that are as beautiful as they are nourishing.',
+      'menu-title': 'OUR MENU',
+      'contact-title': 'CONTACT US'
+      // TAMBAHIN SEMUA KEY EN LU YANG LAIN DI SINI, PAKE KOMA
     },
     id: {
       'about-title': 'TENTANG KAMI',
-      //...lanjutkan semua kode translations lu...
+      'about-text': 'TOTAL FRUIT bukan mangkok buah biasa. Kami adalah pengalaman kurasi kemewahan tropis, diantar langsung ke depan pintu Anda di Dubai. Lahir dari hasrat akan rasa yang segar dan hidup yang sehat, kami hanya memilih buah-buahan premium yang paling segar untuk meracik mangkok yang cantik sekaligus menyehatkan.',
+      'menu-title': 'MENU KAMI',
+      'contact-title': 'HUBUNGI KAMI'
+      // TAMBAHIN SEMUA KEY ID LU YANG LAIN DI SINI, PAKE KOMA
     }
-  };
+  }; // <-- TUTUP OBJECT TRANSLATIONS
   
   function switchLang(lang) {
     currentLang = lang;
