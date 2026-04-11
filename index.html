@@ -362,20 +362,16 @@ footer a:hover{text-decoration:underline}
       // TAMBAHIN SEMUA KEY ID LU YANG LAIN DI SINI, PAKE KOMA
     }
   }; // <-- TUTUP OBJECT TRANSLATIONS
-  let currentlang = 'en';
-  function switchLang(lang) {
-    currentLang = lang;
-    document.getElementById('btn-id').style.opacity = lang === 'id'? '1' : '0.5';
-    document.getElementById('btn-en').style.opacity = lang === 'en'? '1' : '0.5';
-    for (const id in translations[currentLang]) {
-      const el = document.getElementById(id);
-      if (el) el.innerHTML = translations[currentLang][id];
-    }
+  let currentLang = 'en';
+function switchLang(lang) {
+  currentLang = lang;
+  document.getElementById('btn-id').style.opacity = lang === 'id'? '1' : '0.5';
+  document.getElementById('btn-en').style.opacity = lang === 'en'? '1' : '0.5';
+  for (const id in translations[currentLang]) {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = translations[currentLang][id];
   }
-// Pasang event listener ke tombol
-document.getElementById('btn-id').addEventListener('click', () => switchLang('id'));
-document.getElementById('btn-en').addEventListener('click', () => switchLang('en'));
-
+}
 // Jalanin sekali pas web dibuka, default EN
 switchLang('en');
 </script>
