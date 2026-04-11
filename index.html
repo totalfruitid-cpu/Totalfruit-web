@@ -130,7 +130,26 @@ footer a:hover{text-decoration:underline}
 .wa-float{position:fixed;bottom:25px;right:25px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(37,211,102,0.4);transition:0.3s;z-index:999}
 .wa-float:hover{transform:scale(1.1)}
 .wa-float svg{width:32px;height:32px;fill:#fff}
-</style>
+/* === FIX ACCORDION MENU === */
+.menu-list{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.4s ease-out;
+    padding:0 15px;
+}
+
+.menu-cat.active .menu-list{
+    max-height:1500px;
+    padding:15px;
+}
+
+.menu-cat button span{
+    display:inline-block;
+    transition:transform 0.3s;
+}
+.menu-cat.active button span{
+    transform:rotate(45deg);
+}</style>
 </head>
 <body>
 <div class="navbar" style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: #0a0a0a; border-bottom: 1px solid #D4AF37; position: sticky; top: 0; z-index: 1000;">
