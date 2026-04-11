@@ -385,15 +385,6 @@ footer a:hover{text-decoration:underline}
     document.getElementById(modalId).style.display = 'none';
     document.body.style.overflow = 'auto'; // Balikin scroll
   }
-function openModal(modalId) {
-  document.getElementById(modalId).style.display = 'block';
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal(modalId) {
-  document.getElementById(modalId).style.display = 'none';
-  document.body.style.overflow = 'auto';
-}
 
 function openDessertModal(title, price) {
   document.getElementById('dessert-modal-title').innerText = title;
@@ -424,6 +415,9 @@ function openDessertModal(title, price) {
 'dessert-teler': '🥑🥭 Es Teler Creamy Signature Gold - IDR 30,000',
 'dessert-mango': '🥭 Mango Sticky Rice Super Creamy - IDR 35,000',
 'dessert-sando': '🍓🥝 Fruit Sando Premium - IDR 15,000',
+'dessert-modal-desc': '100% Natural • No Santan • No Added Sugar',
+'dessert-modal-btn': 'OK, Got It',
+
     'menu-title': 'OUR MENU',
     'contact-title': 'CONTACT US'
   },
@@ -447,6 +441,9 @@ function openDessertModal(title, price) {
 'dessert-teler': '🥑🥭 Es Teler Creamy Signature Gold - Rp 30.000',
 'dessert-mango': '🥭 Ketan Mangga Super Creamy - Rp 35.000',
 'dessert-sando': '🍓🥝 Fruit Sando Premium - Rp 15.000',
+'dessert-modal-desc': '100% Natural • Tanpa Santan • Tanpa Gula Tambahan',
+'dessert-modal-btn': 'OK, Siap',
+
     'menu-title': 'MENU KAMI',
     'contact-title': 'HUBUNGI KAMI'
   }
