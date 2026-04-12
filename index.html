@@ -396,8 +396,8 @@ function openDessertModal(title, price) {
   document.body.style.overflow = 'hidden';
 }
 
-    // 4. GANTI BAHASA
-  const translations = {
+  // 4. GANTI BAHASA
+const translations = {
   en: {
     'hero-title': 'TOTAL FRUIT',
     'hero-tagline': 'Taste the health, feel the cloud.',
@@ -405,64 +405,61 @@ function openDessertModal(title, price) {
     'hero-desc': 'Premium cut fruit with a gourmet experience.',
     'hero-btn': 'SEE MENU',
     'about-title': 'ABOUT US',
-    "about-text": "TotalFruit is the <strong>first and only</strong> premium dessert brand in Cigeulis bringing 5-star quality to street stall level.<br><br>We combine quality ingredients – grade A fruits and our signature <strong>Kuah Sultan</strong> recipe – handcrafted fresh daily. No machines, no factory. Fresh, thick, creamy, royal.<br><br>From a humble street cart, our mission is clear: elevate local dessert standards. Proving premium doesn't have to be expensive, and delicious doesn't have to be complicated.<br><br><strong>TotalFruit: Street Cart, Sultan Taste.</strong>",
-'juice-title': 'JUICE',
-'juice-desc': '100% Natural ingredients, no artificial coloring or flavors',
-'juice-avocado': '🥑 Avocado',
-'juice-mango': '🥭 Mango',
-'juice-banana': '🍌 Banana',
-'juice-strawberry': '🍓 Strawberry',
-'juice-dragon': '🐉 Dragon Fruit',
-'dessert-title': 'SIGNATURE DESSERT',
-'dessert-desc': 'No Santan • No Added Sugar • Low Sugar',
-'dessert-teler': '🥑🥭 Es Teler Creamy Signature Gold - IDR 30,000',
-'dessert-mango': '🥭 Mango Sticky Rice Super Creamy - IDR 35,000',
-'dessert-sando': '🍓🥝 Fruit Sando Premium - IDR 15,000',
-'dessert-modal-desc': '100% Natural • No Santan • No Added Sugar',
-'dessert-modal-btn': 'OK, Got It',
-
-    'menu-title': 'OUR MENU',
-    'contact-title': 'CONTACT US'
+    'about-text': 'TotalFruit is the <strong>first and only</strong> premium dessert brand in Cigeulis bringing 5-star quality to street stall level.<br><br>We combine quality ingredients – grade A fruits and our signature <strong>Kuah Sultan</strong> recipe – handcrafted fresh daily. No machines, no factory. Fresh, thick, creamy, royal.<br><br>From a humble street cart, our mission is clear: elevate local dessert standards. Proving premium doesn\'t have to be expensive, and delicious doesn\'t have to be complicated.<br><br><strong>TotalFruit: Street Cart, Sultan Taste.</strong>',
+    'juice-title': 'JUICE',
+    'juice-desc': '100% Natural ingredients, no artificial coloring or flavors',
+    'juice-avocado': '🥑 Avocado',
+    'juice-mango': '🥭 Mango',
+    'juice-banana': '🍌 Banana',
+    'juice-strawberry': '🍓 Strawberry',
+    'juice-dragon': '🐉 Dragon Fruit',
+    'dessert-title': 'SIGNATURE DESSERT',
+    'dessert-desc': 'No Santan • No Added Sugar • Low Sugar',
+    'dessert-teler': '🥑🥭 Es Teler Creamy Signature Gold - IDR 30,000',
+    'dessert-mango': '🥭 Mango Sticky Rice Super Creamy'
   },
   id: {
     'hero-title': 'TOTAL FRUIT',
     'hero-tagline': 'Rasakan sehatnya, nikmati kelembutannya.',
     'hero-sub': 'Signature Gold Edition',
-    'hero-desc': 'Potongan buah premium dengan pengalaman gourmet.',
+    'hero-desc': 'Potongan buah premium dengan pengalaman ala gourmet.',
     'hero-btn': 'LIHAT MENU',
     'about-title': 'TENTANG KAMI',
     'about-text': 'TotalFruit adalah brand dessert premium <strong>pertama dan satu-satunya</strong> di Cigeulis yang berani bawa kualitas bintang 5 ke level gerobakan.<br><br>Kami memadukan bahan dasar berkualitas — buah grade A dan resep <strong>Kuah Sultan</strong> signature — yang diolah langsung oleh tangan setiap hari. Nggak ada mesin, nggak ada pabrik. Fresh, kental, creamy, royal.<br><br>Dari stand gerobakan sederhana, misi kami jelas: bikin standar dessert lokal naik kelas. Buktikan kalo premium nggak harus mahal, dan enak nggak harus ribet.<br><br><strong>TotalFruit: Gerobakan Rasa Sultan.</strong>',
-'juice-title': 'JUS',
-'juice-desc': '100% Bahan alami, tanpa pewarna atau perisa buatan',
-'juice-avocado': '🥑 Alpukat',
-'juice-mango': '🥭 Mangga',
-'juice-banana': '🍌 Pisang',
-'juice-strawberry': '🍓 Stroberi',
-'juice-dragon': '🐉 Buah Naga',
-'dessert-title': 'DESSERT SIGNATURE',
-'dessert-desc': 'Tanpa Santan • Tanpa Gula Tambahan • Rendah Gula',
-'dessert-teler': '🥑🥭 Es Teler Creamy Signature Gold - Rp 30.000',
-'dessert-mango': '🥭 Ketan Mangga Super Creamy - Rp 35.000',
-'dessert-sando': '🍓🥝 Fruit Sando Premium - Rp 15.000',
-'dessert-modal-desc': '100% Natural • Tanpa Santan • Tanpa Gula Tambahan',
-'dessert-modal-btn': 'OK, Siap',
-
-    'menu-title': 'MENU KAMI',
-    'contact-title': 'HUBUNGI KAMI'
+    'juice-title': 'JUS',
+    'juice-desc': '100% Bahan alami, tanpa pewarna atau perisa buatan',
+    'juice-avocado': '🥑 Alpukat',
+    'juice-mango': '🥭 Mangga',
+    'juice-banana': '🍌 Pisang',
+    'juice-strawberry': '🍓 Stroberi',
+    'juice-dragon': '🐉 Buah Naga',
+    'dessert-title': 'DESSERT SIGNATURE',
+    'dessert-desc': 'Tanpa Santan • Tanpa Tambahan Gula • Low Sugar',
+    'dessert-teler': '🥑🥭 Es Teler Creamy Signature Gold - IDR 30,000',
+    'dessert-mango': '🥭 Mango Sticky Rice Super Creamy'
   }
 };
-  let currentLang = 'en';
+
 function switchLang(lang) {
-  currentLang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    // KUNCINYA: PAKE translations[lang][key] BUKAN translations[key]
+    el.innerHTML = translations[lang][key];
+  });
+
+  // Update opacity tombol aktif
   document.getElementById('btn-id').style.opacity = lang === 'id'? '1' : '0.5';
   document.getElementById('btn-en').style.opacity = lang === 'en'? '1' : '0.5';
-  for (const id in translations[currentLang]) {
-    const el = document.getElementById(id);
-    if (el) el.innerHTML = translations[currentLang][id];
-  }
+
+  // Simpen pilihan bahasa
+  localStorage.setItem('lang', lang);
 }
-// Jalanin sekali pas web dibuka, default EN
-switchLang('en');
+
+// Jalanin pas pertama buka web
+document.addEventListener('DOMContentLoaded', () => {
+  const currentLang = localStorage.getItem('lang') || 'id';
+  switchLang(currentLang);
+});
 </script>
 </body>
 </html>
