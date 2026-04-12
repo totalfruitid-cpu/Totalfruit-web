@@ -150,22 +150,27 @@ footer a:hover{text-decoration:underline}
 .menu-cat.active button span{
     transform:rotate(45deg);
 
-/* FIX JARAK HERO KE TENTANG */
-.hero {
-  min-height: auto !important;
+/* BOM NUKLIR ANTI-LDR - NEMBAK SEMUA PEMBUNGKUS */
+header, 
+main > section:first-child,
+main > div:first-child,
+.hero,
+.hero-wrapper,
+#home {
+  min-height: 0 !important;
   height: auto !important;
+  max-height: none !important;
   padding-bottom: 0 !important;
   margin-bottom: 0 !important;
 }
 
 #tentang {
-  padding-top: 30px !important;
+  padding-top: 20px !important;
   margin-top: 0 !important;
 }
 
-.hero .btn, 
-#hero-btn {
-  margin-bottom: 0 !important;
+body {
+  padding-top: 80px !important; /* Biar ga ketutup navbar */
 }
 
 </style>
