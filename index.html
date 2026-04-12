@@ -150,17 +150,19 @@ footer a:hover{text-decoration:underline}
 .menu-cat.active button span{
     transform:rotate(45deg);
 
-/* BOM NUKLIR ANTI-LDR - NEMBAK SEMUA PEMBUNGKUS */
-header, 
-main > section:first-child,
-main > div:first-child,
-.hero,
-.hero-wrapper,
-#home {
+/* JURUS PAMUNGKAS - BUBARIN PAKSA LDR */
+.hero {
+  display: block !important;
   min-height: 0 !important;
   height: auto !important;
-  max-height: none !important;
-  padding-bottom: 0 !important;
+  padding-top: 40px !important;
+  padding-bottom: 20px !important;
+  margin: 0 !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+}
+
+.hero > * {
   margin-bottom: 0 !important;
 }
 
@@ -168,11 +170,6 @@ main > div:first-child,
   padding-top: 20px !important;
   margin-top: 0 !important;
 }
-
-body {
-  padding-top: 80px !important; /* Biar ga ketutup navbar */
-}
-
 </style>
 </head>
 <body>
