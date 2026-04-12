@@ -162,29 +162,24 @@ body {
 </style>
 </head>
 <body>
-<div class="navbar">
-  <div style="display: flex; align-items: center; gap: 20px;">
-    <img src="logo.png" alt="Total Fruit" style="height: 38px;">
-    <div style="display: flex; align-items: center; gap: 16px; font-size: 14px;">
-      <a href="#home" style="color: white; text-decoration: none; white-space: nowrap;">Home</a>
-      <a href="#tentang" style="color: white; text-decoration: none; white-space: nowrap;">About Us</a>
-      <a href="#menu" style="color: white; text-decoration: none; white-space: nowrap;">Menu</a>
+<header>
+  <div class="nav">
+    <div class="brand">
+      <img src="logo.png" alt="TotalFruit">
+      <strong>TotalFruit</strong>
+    </div>
+    <nav>
+      <a href="#" data-i18n="nav-home"></a>
+      <a href="#tentang" data-i18n="nav-about"></a>
+      <a href="#menu" data-i18n="nav-menu"></a>
+    </nav>
+    <div class="lang">
+      <a id="lang-id" href="#">ID</a> / <a id="lang-en" href="#">EN</a>
     </div>
   </div>
-  
-  <!-- KANAN: Tombol Bahasa -->
-  <div id="langBtn" style="font-weight: bold; color: #D4AF37; cursor: pointer; user-select: none; font-size: 14px; white-space: nowrap; position: relative; z-index: 999;">
-    <span onclick="switchLang('id')" id="btn-id" style="opacity: 0.5;">ID</span>
-    <span style="margin: 0 4px; opacity: 0.5;">/</span>
-    <span onclick="switchLang('en')" id="btn-en" style="opacity: 1;">EN</span>
-  </div>
-</div>
-</div>
+</header>
 
-</div>
-</div>
-
-<div class="hero" style="margin:0!important;padding-bottom:0!important;">
+<div class="hero" style="margin-top:60px!important;margin-bottom:0!important;padding-bottom:0!important;">
     <h1 id="hero-title" class="title crown-1" data-i18n="hero-title"></h1>
     <p id="hero-tagline" class="tagline" data-i18n="hero-tagline"></p>
     <p id="hero-sub" data-i18n="hero-sub"></p>
