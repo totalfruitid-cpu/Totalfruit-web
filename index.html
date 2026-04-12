@@ -150,28 +150,27 @@ footer a:hover{text-decoration:underline}
 .menu-cat.active button span{
     transform:rotate(45deg);
 
-/* BOM ATOM V1 - TARGET SEMUA YANG ABIS NAVBAR */
-.navbar + * {
+/* BOM HIDROGEN - HANCURKAN SEMUA TINGGI PAKSAAN */
+html, body, main {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+body > section:first-of-type,
+main > section:first-of-type,
+section:first-of-type {
   display: block !important;
   min-height: 0 !important;
   height: auto !important;
-  padding-top: 40px !important;
-  padding-bottom: 20px !important;
+  padding: 40px 20px 20px !important;
   margin: 0 !important;
-  background: red !important; /* WAJIB MUNCUL */
+  background: red !important; /* MUNCUL GAK LU */
 }
 
 #tentang, section[id*="about"], section[id*="tentang"] {
   margin-top: 0 !important; 
   padding-top: 20px !important;
   background: blue !important;
-}
-
-#tentang {
-  margin-top: 0 !important; 
-  padding-top: 20px !important;
-  background: blue !important; /* KOTAK TENTANG JADI BIRU */
-  border: 5px solid lime !important;
 }
 </style>
 </head>
