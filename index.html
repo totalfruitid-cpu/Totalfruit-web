@@ -1,472 +1,68 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>TOTAL FRUIT</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-<style>
-_{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth !important}
-section, .hero{scroll-margin-top:80px !important}
-body{background:#000;color:#fff;font-family:'Poppins',sans-serif; padding-top:80px;}
-.navbar a{color:#ccc;text-decoration:none;font-weight:600;font-size:0.95rem;transition:0.3s}
-.navbar a:hover{color:#FFD700}
-.navbar{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height: 80px !important;
-  background:#000 !important;
-  display: flex !important;
-  align-items: center !important;
-  padding: 0 20px 0 30px !important;
-  z-index:1000;
-  border-bottom: 2px solid #FFD700 !important;
-  box-shadow: 0 2px 15px rgba(255, 215, 0, 0.2) !important;
-}
-.navbar a{
-  color:#ccc;
-  text-decoration:none;
-  font-weight:500;
-  margin-right:20px
-}
-.navbar a:hover{color:#FFD700}
-
-/* Logo buah balik ke pojok kanan atas, muat di dalem navbar */
-.logo-top{
-  position:fixed;
-  top:10px;
-  right:20px;
-  width:60px;
-  height:60px;
-  z-index:1001;
-}
-
-/* Dorong konten ke bawah biar gak ketiban navbar 80px */
-body {
-  padding-top: 90px !important;
-}
-}
-.logo-top{position:fixed;top:12px;right:20px;width:50px;height:auto;z-index:999;filter:drop-shadow(0 0 12px rgba(255,215,0,0.5));background:transparent}
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center}
-.title{
-  font-family:'Cinzel',serif;
-  font-size:2rem;
-  font-weight:700;
-  letter-spacing:2px;
-  background:linear-gradient(90deg,#FFD700,#FFA500);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  margin-bottom:8px;
-  text-shadow:0 0 30px rgba(255,215,0,0.3);
-  white-space:nowrap;
-}
-.crown-l{
-  position:relative;
-  display:inline-block;
-  background:linear-gradient(90deg,#FFD700,#FFA500);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.crown-l::before{
-  content:'👑';
-  position:absolute;
-  top:-1.3em;
-  left:50%;
-  transform:translateX(-50%) scale(0.9);
-  font-size:1em;
-  -webkit-text-fill-color:initial;
-  color:#FFD700;
-  filter:drop-shadow(0 0 10px #FFD700);
-  z-index:2;
-}
-.tagline {
-  margin-top: -8px;
-  margin-bottom: 15px;
-  font-size: 0.75em;
-  font-style: italic;
-  color: #b5b5b5;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  opacity: 0.8;
-  white-space: nowrap;
-}
-p{margin-top:0;color:#ccc;margin-bottom:30px;max-wi
-}
-p{margin-top:0;color:#ccc;margin-bottom:15px;max-width:500px;line-height:1.6;font-size:1.1rem}
-.btn{background:linear-gradient(90deg,#FFD700,#FFA500);color:#000;padding:14px 32px;border:none;border-radius:30px;font-weight:600;font-size:1rem;cursor:pointer;text-decoration:none;transition:0.3s}
-.btn:hover{opacity:0.85;transform:translateY(-2px)}
-section{padding:100px 20px;max-width:700px;margin:0 auto;text-align:center}
-section h2{font-family:'Cinzel',serif;font-size:2rem;color:#FFD700;margin-bottom:25px}
-
-/_ MENU ACCORDION */
-.menu-cat{background:#transparent;border:1px solid #333;border-radius:12px;margin-bottom:15px;overflow:hidden;text-align:left}
-.menu-cat button{width:100%;background:transparent;border:none;color:#FFD700;font-size:1.1rem;font-weight:600;padding:18px 20px;cursor:pointer;display:flex;justify-content: center;align-items:center;gap:8px}
-.menu-cat button:hover{background:#151515}
-.menu-cat button span{transition:0.3s}
-.menu-cat.active button span{transform:rotate(45deg)}
-.menu-list{max-height:0;overflow:hidden;transition:max-height 0.3s ease;padding:0 20px}
-.menu-cat.active .menu-list{max-height:500px;padding:0 20px 15px}
-.menu-item{padding:12px 0;border-bottom:1px solid #222;display:flex;justify-content:space-between}
-.menu-item:last-child{border-bottom:none}
-.menu-item h4{color:#fff;font-weight:500;font-size:1rem}
-.menu-item p{color:#FFD700;margin:0;font-size:0.95rem}
-/* Bikin Signature jadi sub-judul emas - VERSI FINAL BANGET */
-.hero p:nth-of-type(2) {
-  font-weight: 700 !important;
-  font-size: 1.1em !important;
-  color: #FFD700 !important;
-  margin-top: 35px !important;
-  margin-bottom: 10px !important;
-  text-transform: uppercase !important;
-  letter-spacing: 2px !important;
-  }
-footer{background:#0a0a0a;padding:40px 20px;text-align:center;border-top:1px solid #222;margin-top:60px}
-footer p{color:#999;margin:8px 0;font-size:0.95rem}
-footer a{color:#FFD700;text-decoration:none}
-footer a:hover{text-decoration:underline}
-.wa-float{position:fixed;bottom:25px;right:25px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(37,211,102,0.4);transition:0.3s;z-index:999}
-.wa-float:hover{transform:scale(1.1)}
-.wa-float svg{width:32px;height:32px;fill:#fff}
-/* === FIX ACCORDION MENU === */
-.menu-list{
-    max-height:0;
-    overflow:hidden;
-    transition:max-height 0.4s ease-out;
-    padding:0 15px;
-}
-
-.menu-cat.active .menu-list{
-    max-height:1500px;
-    padding:15px;
-}
-
-.menu-cat button span{
-    display:inline-block;
-    transition:transform 0.3s;
-}
-.menu-cat.active button span{
-    transform:rotate(45deg);
-
-/* NUKLIR NAGASAKI */
-body, html, div, section, main {
-  min-height: 0 !important;
-  height: auto !important;
-}
-body {
-  padding-top: 70px !important;
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Fruit Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            padding: 14px 20px;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-<header>
-  <div class="nav">
-    <div class="brand">
-      <img src="logo.png" alt="TotalFruit">
-      <strong>TotalFruit</strong>
-    </div>
+    <header>
+        <h1>Welcome to Total Fruit Web</h1>
+    </header>
     <nav>
-      <a href="#" data-i18n="nav-home"></a>
-      <a href="#tentang" data-i18n="nav-about"></a>
-      <a href="#menu" data-i18n="nav-menu"></a>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
     </nav>
-    <div class="lang">
-      <a id="lang-id" href="#">ID</a> / <a id="lang-en" href="#">EN</a>
+    <div class="container">
+        <h2>Fresh Fruits</h2>
+        <p>Enjoy a variety of fresh fruits delivered daily.</p>
     </div>
-  </div>
-</header>
-
-<div class="hero" style="margin-top:60px!important;margin-bottom:0!important;padding-bottom:0!important;">
-    <h1 id="hero-title" class="title crown-1" data-i18n="hero-title"></h1>
-    <p id="hero-tagline" class="tagline" data-i18n="hero-tagline"></p>
-    <p id="hero-sub" data-i18n="hero-sub"></p>
-    <p id="hero-desc" data-i18n="hero-desc"></p>
-    <a id="hero-btn" href="#menu" class="btn" data-i18n="hero-btn" style="margin-top:30px!important;margin-bottom:30px!important;"></a>
-  </div>
-
-  <section id="tentang" style="margin-top:0!important;padding-top:0!important;padding-bottom:30px!important;">
-    <h2 id="about-title" data-i18n="about-title" style="margin-top:0!important;margin-bottom:15px!important;"></h2>
-    <p id="about-text" data-i18n="about-text" style="margin-top:0!important;margin-bottom:0!important;"></p>
-  </section>
-
-<section id="menu" style="padding: 60px 20px; background: #0a0a0a; text-align: center;">
-  <h2 id="juice-title" data-i18n="juice-title" style="color: #D4AF37; font-size: 36px; margin-bottom: 10px;"></h2>
-  <p id="juice-desc" data-i18n="juice-desc" style="color: #aaa; margin-bottom: 40px;"></p>
-</section>
-
-<!-- Section Tombol Kategori -->
-<div style="display: flex; gap: 15px; justify-content: center; max-width: 900px; margin: 0 auto 60px auto; flex-wrap: wrap;">
-  <!-- Section Semua Tombol Menu -->
-  <div style="display: flex; gap: 15px; justify-content: center; max-width: 900px; margin: 0 auto 20px auto; flex-wrap: wrap;">
-    
-    <button id="juice-avocado" data-i18n="juice-avocado" onclick="openModal('avocadoModal')" style="background-color:#d4a017; color:#000; border:none; padding:15px; border-radius:25px; width:100%; font-size:16px; margin:5px 0;">
-      🥑 Avocado
-    </button>
-
-    <button id="juice-mango" data-i18n="juice-mango" onclick="openModal('mangoModal')" style="background-color:#d4a017; color:#000; border:none; padding:15px; border-radius:25px; width:100%; font-size:16px; margin:5px 0;">
-      🥭 Mango
-    </button>
-
-  <button id="juice-banana" data-i18n="juice-banana" onclick="openModal('bananaModal')" style="background-color:#d4a017; color:#000; border:none; padding:15px; border-radius:25px; width:100%; font-size:16px; margin:5px 0;">
-  🍌 Banana
-</button>
-
-<button id="juice-strawberry" data-i18n="juice-strawberry" onclick="openModal('strawberryModal')" style="background-color:#d4a017; color:#000; border:none; padding:15px; border-radius:25px; width:100%; font-size:16px; margin:5px 0;">
-  🍓 Strawberry
-</button>
-
-<button id="juice-dragon" data-i18n="juice-dragon" onclick="openModal('dragonModal')" style="background-color:#d4a017; color:#000; border:none; padding:15px; border-radius:25px; width:100%; font-size:16px; margin:5px 0;">
-  🐉 Dragon Fruit
-</button>  
-</div>
-
-<!-- SIGNATURE DESSERT SECTION -->
-<div style="padding: 40px 20px; background-color:#000; border-top: 1px solid #333;">
-  <h2 id="dessert-title" data-i18n="dessert-title" style="text-align:center; color:#d4a017; font-size:32px; margin-bottom:10px; font-family:serif;">
-    SIGNATURE DESSERT
-  </h2>
-  <p id="dessert-desc" data-i18n="dessert-desc" style="text-align:center; color:#aaa; margin-bottom:30px; font-size:14px;">
-    No Santan • No Added Sugar • Rich Fiber
-  </p>
-
-  <button id="dessert-teler" data-i18n="dessert-teler" onclick="openDessertModal('Es Teler Creamy Signature Gold', 'IDR 30,000')" style="background-color:#d4a017; color:#000; border:none; padding:15px; border-radius:25px; width:100%; font-size:16px; margin:5px 0; font-weight:bold;">
-    🥑🥭 Es Teler Creamy Signature Gold - IDR 30,000
-  </button>
-
-  <button id="dessert-mango" data-i18n="dessert-mango" onclick="openDessertModal('Mango Sticky Rice Super Creamy', 'IDR 35,000')" style="background-color:#d4a017; color:#000; border:none; padding:15px; border-radius:25px; width:100%; font-size:16px; margin:5px 0; font-weight:bold;">
-    🥭 Mango Sticky Rice Super Creamy - IDR 35,000
-  </button>
-
-  <button id="dessert-sando" data-i18n="dessert-sando" onclick="openDessertModal('Fruit Sando Premium', 'IDR 15,000')" style="background-color:#d4a017; color:#000; border:none; padding:15px; border-radius:25px; width:100%; font-size:16px; margin:5px 0; font-weight:bold;">
-    🍓🥝 Fruit Sando Premium - IDR 15,000
-  </button>
-</div>
-
-<!-- MODAL AVOCADO -->
-<div id="avocadoModal" class="modal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7);">
-<div class="modal-content" style="background: #111; margin: 5vh auto; padding: 15px; border: 2px solid #D4AF37; width: 90%; max-width: 500px; max-height: 85vh; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; box-sizing: border-box; border-radius: 15px; position: relative;">
-    <span onclick="closeModal('avocadoModal')" style="color: #D4AF37; position: absolute; top: 10px; right: 20px; font-size: 30px; font-weight: bold; cursor: pointer;">&times;</span>
-    <h2 style="font-size: 16px; margin: 4px 0 8px 0; padding: 0; text-align: center; color: #D4AF37; line-height: 1.2;"> AVOCADO SERIES</h2>
-    <img src="Menu-avocado.png" alt="Menu Avocado" style="width: 100%; height: auto; display: block; max-width: 100%;">
-    <div style="text-align: center; margin-top: 20px;">
-      <button onclick="window.open('https://wa.me/628512444513?text=Order Avocado Lite - 18K')" style="background: transparent; color: #D4AF37; padding: 12px 24px; margin: 5px; border: 2px solid #D4AF37; border-radius: 25px; font-weight: bold; font-size: 16px; cursor: pointer;">Lite - 18K</button>
-      <button onclick="window.open('https://wa.me/628512444513?text=Order Avocado Healthy - 25K')" style="background: transparent; color: #D4AF37; padding: 12px 24px; margin: 5px; border: 2px solid #D4AF37; border-radius: 25px; font-weight: bold; font-size: 16px; cursor: pointer;">Healthy - 25K</button>
-      <button onclick="window.open('https://wa.me/628512444513?text=Order Avocado Sultan Edition - 45K')" style="background: #D4AF37; color: black; padding: 12px 24px; margin: 5px; border: 2px solid #D4AF37; border-radius: 25px; font-weight: bold; font-size: 16px; cursor: pointer;">Sultan - 45K 👑</button>
-    </div>
-  </div>
-</div>
-
-<!-- MODAL MANGO -->
-<div id="mangoModal" class="modal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7);">
-<div class="modal-content" style="background: #111; margin: 5vh auto; padding: 15px; border: 2px solid #D4AF37; width: 90%; max-width: 500px; max-height: 85vh; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; box-sizing: border-box; border-radius: 15px; position: relative;">
-    <span onclick="closeModal('mangoModal')" style="color: #D4AF37; position: absolute; top: 10px; right: 20px; font-size: 30px; font-weight: bold; cursor: pointer;">&times;</span>
-    <h2 style="font-size: 16px; margin: 4px 0 8px 0; padding: 0; text-align: center; color: #D4AF37; line-height: 1.2;"> MANGO SERIES</h2>
-    <img src="Menu-mango.png" alt="Menu Mango" style="width: 100%; height: auto; display: block; max-width: 100%;">
-    <div style="text-align: center; margin-top: 20px;">
-      <button onclick="window.open('https://wa.me/628512444513?text=Order Mango Lite - 18K')" style="background: transparent; color: #D4AF37; padding: 12px 24px; margin: 5px; border: 2px solid #D4AF37; border-radius: 25px; font-weight: bold; font-size: 16px; cursor: pointer;">Lite - 18K</button>
-      <button onclick="window.open('https://wa.me/628512444513?text=Order Mango Healthy - 25K')" style="background: transparent; color: #D4AF37; padding: 12px 24px; margin: 5px; border: 2px solid #D4AF37; border-radius: 25px; font-weight: bold; font-size: 16px; cursor: pointer;">Healthy - 25K</button>
-      <button onclick="window.open('https://wa.me/628512444513?text=Order Mango Sultan Edition - 45K')" style="background: #D4AF37; color: black; padding: 12px 24px; margin: 5px; border: 2px solid #D4AF37; border-radius: 25px; font-weight: bold; font-size: 16px; cursor: pointer;">Sultan - 45K 👑</button>
-    </div>
-  </div>
-</div>
-
-<!-- MODAL BANANA -->
-<div id="bananaModal" class="modal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7);">
-<div class="modal-content" style="background: #111; margin: 5vh auto; padding: 15px; border: 2px solid #D4AF37; width: 90%; max-width: 500px; max-height: 85vh; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; box-sizing: border-box; border-radius: 15px; position: relative;">
-    <span onclick="closeModal('bananaModal')" style="color: #D4AF37; position: absolute; top: 10px; right: 20px; font-size: 30px; font-weight: bold; cursor: pointer;">&times;</span>
-    <h2 style="font-size: 16px; margin: 4px 0 8px 0; padding: 0; text-align: center; color: #D4AF37; line-height: 1.2;"> BANANA SERIES</h2>
-    <img src="Menu-banana.png" alt="Menu Banana" style="width: 100%; height: auto; display: block; max-width: 100%;">
-    <div style="text-align: center; margin-top: 20px;">
-      <button onclick="window.open('https://wa.me/628512444513?text=Order Banana Lite - 18K')" style="background: transparent; color: #D4AF37; padding: 12px 24px; margin: 5px; border: 2px solid #D4AF37; border-radius: 25px; font-weight: bold; font-size: 16px; cursor: pointer;">Lite - 18K</button>
-      <button onclick="window.open('https://wa.me/628512444513?text=Order AmBanana Healthy - 25K')" style="background: transparent; color: #D4AF37; padding: 12px 24px; margin: 5px; border: 2px solid #D4AF37; border-radius: 25px; font-weight: bold; font-size: 16px; cursor: pointer;">Healthy - 25K</button>
-      <button onclick="window.open('https://wa.me/628512444513?text=Order Banana Sultan Edition - 45K')" style="background: #D4AF37; color: black; padding: 12px 24px; margin: 5px; border: 2px solid #D4AF37; border-radius: 25px; font-weight: bold; font-size: 16px; cursor: pointer;">Sultan - 45K 👑</button>
-    </div>
-  </div>
-</div>
-
-<!-- MODAL STRAWBERRY -->
-<div id="strawberryModal" class="modal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7);">
-<div class="modal-content" style="background: #111; margin: 5vh auto; padding: 15px; border: 2px solid #D4AF37; width: 90%; max-width: 500px; max-height: 85vh; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; box-sizing: border-box; border-radius: 15px; position: relative;">
-    <span onclick="closeModal('strawberryModal')" style="color: #D4AF37; position: absolute; top: 10px; right: 20px; font-size: 30px; font-weight: bold; cursor: pointer;">&times;</span>
-    <h2 style="font-size: 16px; margin: 4px 0 8px 0; padding: 0; text-align: center; color: #D4AF37; line-height: 1.2;"> STRAWBERRY SERIES</h2>
-    <img src="Menu-strawberry.png" alt="Menu Strawberry" style="width: 100%; height: auto; display: block; max-width: 100%;">
-    <div style="text-align: center; margin-top: 20px;">
-      <button onclick="window.open('https://wa.me/628512444513?text=Order Strawberry Lite - 18K')" style="background: transparent; color: #D4AF37; padding: 12px 24px; margin: 5px; border: 2px solid #D4AF37; border-radius: 25px; font-weight: bold; font-size: 16px; cursor: pointer;">Lite - 18K</button>
-      <button onclick="window.open('https://wa.me/628512444513?text=Order Strawberry Healthy - 25K')" style="background: transparent; color: #D4AF37; padding: 12px 24px; margin: 5px; border: 2px solid #D4AF37; border-radius: 25px; font-weight: bold; font-size: 16px; cursor: pointer;">Healthy - 25K</button>
-      <button onclick="window.open('https://wa.me/628512444513?text=Order Strawberry Sultan Edition - 45K')" style="background: #D4AF37; color: black; padding: 12px 24px; margin: 5px; border: 2px solid #D4AF37; border-radius: 25px; font-weight: bold; font-size: 16px; cursor: pointer;">Sultan - 45K 👑</button>
-    </div>
-  </div>
-</div>
-
-<!-- MODAL DRAGON -->
-<div id="dragonModal" class="modal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7);">
-<div class="modal-content" style="background: #111; margin: 5vh auto; padding: 15px; border: 2px solid #D4AF37; width: 90%; max-width: 500px; max-height: 85vh; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; box-sizing: border-box; border-radius: 15px; position: relative;">
-    <span onclick="closeModal('dragonModal')" style="color: #D4AF37; position: absolute; top: 10px; right: 20px; font-size: 30px; font-weight: bold; cursor: pointer;">&times;</span>
-    <h2 style="font-size: 16px; margin: 4px 0 8px 0; padding: 0; text-align: center; color: #D4AF37; line-height: 1.2;"> DRAGON SERIES</h2>
-    <img src="Menu-dragonfruit.png" alt="Menu Dragon" style="width: 100%; height: auto; display: block; max-width: 100%;">
-    <div style="text-align: center; margin-top: 20px;">
-      <button onclick="window.open('https://wa.me/628512444513?text=Order Dragon Lite - 18K')" style="background: transparent; color: #D4AF37; padding: 12px 24px; margin: 5px; border: 2px solid #D4AF37; border-radius: 25px; font-weight: bold; font-size: 16px; cursor: pointer;">Lite - 18K</button>
-      <button onclick="window.open('https://wa.me/628512444513?text=Order Dragon Healthy - 25K')" style="background: transparent; color: #D4AF37; padding: 12px 24px; margin: 5px; border: 2px solid #D4AF37; border-radius: 25px; font-weight: bold; font-size: 16px; cursor: pointer;">Healthy - 25K</button>
-      <button onclick="window.open('https://wa.me/628512444513?text=Order Dragon Sultan Edition - 45K')" style="background: #D4AF37; color: black; padding: 12px 24px; margin: 5px; border: 2px solid #D4AF37; border-radius: 25px; font-weight: bold; font-size: 16px; cursor: pointer;">Sultan - 45K 👑</button>
-    </div>
-  </div>
-</div>
-<!-- DESSERT MODAL - 1 UNTUK SEMUA -->
-<div id="dessertModal" class="modal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8);">
-  <div style="background-color:#111; margin:10% auto; padding:20px; border:1px solid #d4a017; width:90%; max-width:400px; border-radius:15px; position:relative;">
-    <span onclick="closeModal('dessertModal')" style="color:#d4a017; float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
-    
-    <img id="dessert-modal-img" src="Menu-dessert.png" style="width:100%; border-radius:10px; margin-bottom:15px;">
-    
-    <h3 id="dessert-modal-title" style="color:#d4a017; text-align:center; margin:10px 0;"></h3>
-    
-    <p id="dessert-modal-desc" data-i18n="dessert-modal-desc" style="color:#aaa; text-align:center; font-size:14px; margin-bottom:15px;">
-      100% Natural • No Santan • No Added Sugar
-    </p>
-    
-    <p id="dessert-modal-price" style="color:#fff; text-align:center; font-size:20px; font-weight:bold; margin-bottom:20px;"></p>
-    
-    <button id="dessert-modal-btn" data-i18n="dessert-modal-btn" onclick="closeModal('dessertModal')" style="background-color:#d4a017; color:#000; border:none; padding:12px; border-radius:25px; width:100%; font-weight:bold;">
-      OK, Got It
-    </button>
-  </div>
-</div>
-   
-</section>
-<div class="menu-cat">
-<button>GOURMET <span>+</span></button>
-<div class="menu-list">
-<div class="menu-item"><h4>Mango Sticky Rice</h4><p>35K</p></div>
-<div class="menu-item"><h4>Fruit Sando</h4><p>28K</p></div>
-</div>
-</div>
-
-<div class="menu-cat">
-<button>DESSERT <span>+</span></button>
-<div class="menu-list">
-<div class="menu-item"><h4>Es Teler Sultan Signature Gold</h4><p>38K</p></div>
-</div>
-</div>
-
-</section>
-
-<footer>
-<p><strong style="color:#FFD700">TOTAL FRUIT</strong></p>
-<p>Location: Cigeulis, Banten</p>
-<p>Instagram: <a href="https://instagram.com/totalfruit.id" target="_blank">@totalfruit.id</a></p>
-<p style="margin-top:15px;font-size:0.85rem;color:#666">© 2026 TOTAL FRUIT. All rights reserved.</p>
-</footer>
-
-<a href="https://wa.me/6285124441513?text=Halo%20TOTAL%20FRUIT,%20mau%20order%20dong" target="_blank" class="wa-float" aria-label="Chat WhatsApp">
-<svg viewBox="0 0 32 32"><path d="M16 0C7.2 0 0 7.2 0 16c0 2.8.7 5.5 2.1 7.9L0 32l8.3-2.2C10.6 31.3 13.3 32 16 32c8.8 0 16-7.2 16-16S24.8 0 16 0zm0 29.3c-2.4 0-4.7-.6-6.8-1.8l-.5-.3-4.9 1.3-4.8-.3-.5c-1.3-2.1-2-4.5-2-7 0-7.3 6-13.3 13.3-13.3S29.3 8.7 29.3 16 23.3 29.3 16 29.3zm7.3-9.9c-.4-.2-2.3-1.1-2.7-1.2-.4-.1-.6-.2-.9.2-.3.4-1 1.2-1.2 1.5-.2.3-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.4-2-3.1-2.2-3.5-.2-.4 0-.6.2-.8.2-.2.4-.5.5-.7.2-.2.3-.4.4-.6.1-.2.1-.5 0-.7-.1-.2-.9-2.1-1.2-2.9-.3-.7-.6-.6-.8-.6h-.7c-.3 0-.7.1-1 .5-.4.4-1.3 1.3-1.3 3.1s1.4 3.6 1.6 3.9c.2.3 2.7 4.1 6.5 5.7 3.8 1.6 3.8 1.1 4.5 1 .7-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.1-.4-.2-.8-.4z"/></svg>
-</a>
-  <script>
-  // JALANIN PAS HALAMAN SELESAI LOAD
-  document.addEventListener('DOMContentLoaded', function() {
-    // 1. ACCORDION MENU
-    const accordionBtns = document.querySelectorAll('.menu-cat button');
-    accordionBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        btn.parentElement.classList.toggle('active');
-      });
-    });
-
-    // 2. TUTUP MODAL KALO KLIK DI LUAR
-    window.onclick = function(event) {
-      if (event.target.classList.contains('modal')) {
-        event.target.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
-    }
-  });
-
-  // 3. FUNGSI MODAL
-  function openModal(modalId) {
-    document.getElementById(modalId).style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Kunci scroll background
-  }
-
-  function closeModal(modalId) {
-    document.getElementById(modalId).style.display = 'none';
-    document.body.style.overflow = 'auto'; // Balikin scroll
-  }
-
-function openDessertModal(title, price) {
-  document.getElementById('dessert-modal-title').innerText = title;
-  document.getElementById('dessert-modal-price').innerText = price;
-  document.getElementById('dessertModal').style.display = 'block';
-  document.body.style.overflow = 'hidden';
-}
-
-  // 4. GANTI BAHASA
-const translations = {
-  en: {
-    'hero-title': 'TOTAL FRUIT',
-    'hero-tagline': 'Taste the health, feel the cloud.',
-    'hero-sub': 'Signature Gold Edition',
-    'hero-desc': 'Premium cut fruit with a gourmet experience.',
-    'hero-btn': 'SEE MENU',
-    'about-title': 'ABOUT US',
-    'about-text': 'TotalFruit is the <strong>first and only</strong> premium dessert brand in Cigeulis bringing 5-star quality to street stall level.<br><br>We combine quality ingredients – grade A fruits and our signature <strong>Kuah Sultan</strong> recipe – handcrafted fresh daily. No machines, no factory. Fresh, thick, creamy, royal.<br><br>From a humble street cart, our mission is clear: elevate local dessert standards. Proving premium doesn\'t have to be expensive, and delicious doesn\'t have to be complicated.<br><br><strong>TotalFruit: Street Cart, Sultan Taste.</strong>',
-    'juice-title': 'JUICE',
-    'juice-desc': '100% Natural ingredients, no artificial coloring or flavors',
-    'juice-avocado': '🥑 Avocado',
-    'juice-mango': '🥭 Mango',
-    'juice-banana': '🍌 Banana',
-    'juice-strawberry': '🍓 Strawberry',
-    'juice-dragon': '🐉 Dragon Fruit',
-    'dessert-title': 'SIGNATURE DESSERT',
-'dessert-desc': 'No Water • No Coconut Milk • No Added Sugar • Rich Fiber',
-'dessert-teler': '🥑🥭 Es Teler Creamy Signature Gold - IDR 30,000',
-'dessert-mango': '🥭 Mango Sticky Rice Super Creamy - Rp 25.000',
-'dessert-sando': '🍓🥝 Fruit Sando Premium - Rp 15.000',
-  },
-  id: {
-    'hero-title': 'TOTAL FRUIT',
-    'hero-tagline': 'Rasakan sehatnya, nikmati kelembutannya.',
-    'hero-sub': 'Signature Gold Edition',
-    'hero-desc': 'Potongan buah premium dengan pengalaman ala gourmet.',
-    'hero-btn': 'LIHAT MENU',
-    'about-title': 'TENTANG KAMI',
-    'about-text': 'TotalFruit adalah brand dessert premium <strong>pertama dan satu-satunya</strong> di Cigeulis yang berani bawa kualitas bintang 5 ke level gerobakan.<br><br>Kami memadukan bahan dasar berkualitas — buah grade A dan resep <strong>Kuah Sultan</strong> signature — yang diolah langsung oleh tangan setiap hari. Nggak ada mesin, nggak ada pabrik. Fresh, kental, creamy, royal.<br><br>Dari stand gerobakan sederhana, misi kami jelas: bikin standar dessert lokal naik kelas. Buktikan kalo premium nggak harus mahal, dan enak nggak harus ribet.<br><br><strong>TotalFruit: Gerobakan Rasa Sultan.</strong>',
-    'juice-title': 'JUS',
-    'juice-desc': '100% Bahan alami, tanpa pewarna atau perisa buatan',
-    'juice-avocado': '🥑 Alpukat',
-    'juice-mango': '🥭 Mangga',
-    'juice-banana': '🍌 Pisang',
-    'juice-strawberry': '🍓 Stroberi',
-    'juice-dragon': '🐉 Buah Naga',
-    'dessert-title': 'SIGNATURE DESSERT',
-'dessert-desc': 'Tanpa Air • Tanpa Santan • Tanpa Tambahan Gula • Kaya Serat',
-'dessert-teler': '🥑🥭 Es Teler Creamy Signature Gold - IDR 30,000',
-'dessert-mango': '🥭 Ketan Mangga Super Creamy - Rp 25.000',
-'dessert-sando': '🍓🥝 Fruit Sando Premium - Rp 15.000',
-  }
-};
-
-function switchLang(lang) {
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    // KUNCINYA: PAKE translations[lang][key] BUKAN translations[key]
-    el.innerHTML = translations[lang][key];
-  });
-
-  // Update opacity tombol aktif
-  document.getElementById('btn-id').style.opacity = lang === 'id'? '1' : '0.5';
-  document.getElementById('btn-en').style.opacity = lang === 'en'? '1' : '0.5';
-
-  // Simpen pilihan bahasa
-  localStorage.setItem('lang', lang);
-}
-
-// Jalanin pas pertama buka web
-document.addEventListener('DOMContentLoaded', () => {
-  const currentLang = localStorage.getItem('lang') || 'id';
-  switchLang(currentLang);
-});
-</script>
+    <footer>
+        <p>&copy; 2026 Total Fruit ID CPU</p>
+    </footer>
 </body>
 </html>
