@@ -14,7 +14,7 @@ export default function Dashboard() {
       'hero-desc': 'Premium cut fruit with a gourmet experience.',
       'hero-btn': 'SEE MENU',
       'about-title': 'ABOUT US',
-      'about-text': 'TotalFruit is the <strong>first and only</strong> premium dessert brand in Cigeulis bringing 5-star quality to street stall level.<br><br>We combine quality ingredients – grade A fruits and our signature <strong>Kuah Sultan</strong> recipe – handcrafted fresh daily.<br><br><strong>TotalFruit: Street Cart, Sultan Taste.</strong>',
+      'about-text': 'TotalFruit is the <strong>first and only</strong> premium dessert brand in Cibaling Pandeglang Banten bringing 5-star quality to street stall level.<br><br>We combine quality ingredients – grade A fruits and our signature <strong>Kuah Sultan</strong> recipe – handcrafted fresh daily.<br><br><strong>TotalFruit: Street Cart, Sultan Taste.</strong>',
       'juice-title': 'JUICE',
       'juice-desc': '100% Natural ingredients, no artificial coloring or flavors',
       'dessert-title': 'SIGNATURE DESSERT',
