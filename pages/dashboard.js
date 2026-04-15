@@ -53,15 +53,14 @@ export default function Dashboard() {
     };
 
     window.switchLang = function(lang) {
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if(translations[lang][key]) el.innerHTML = translations[lang][key];
-      });
-      document.getElementById('btn-id').style.opacity = lang === 'id'? '1' : '0.5';
-      document.getElementById('btn-en').style.opacity = lang === 'en'? '1' : '0.5';
-      localStorage.setItem('lang', lang);
-    }
-
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if(translations[lang][key]) el.innerHTML = translations[lang][key];
+  });
+  document.getElementById('btn-id').style.opacity = lang === 'id'? '1' : '0.5';
+  document.getElementById('btn-en').style.opacity = lang === 'en'? '1' : '0.5';
+  localStorage.setItem('lang', lang);
+}
     window.openModal = function(modalId) {
       document.getElementById(modalId).style.display = 'block';
       document.body.style.overflow = 'hidden';
