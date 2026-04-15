@@ -497,6 +497,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentLang = localStorage.getItem('lang') || 'id';
   switchLang(currentLang);
 });
+
+const API_URL = "https://c4d34aca1f26a3.lhr.life";
+fetch(API_URL + "/data")
+  .then(r => r.json())
+  .then(d => {
+    console.log("KONEK:", d);
+    alert("BERHASIL KONEK KE SERVER");
+  })
+  .catch(e => {
+    console.error(e);
+    alert("GAGAL KONEK. Termux nyala?");
+  });
 </script>
 </body>
 </html>
