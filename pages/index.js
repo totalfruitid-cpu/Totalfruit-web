@@ -1,10 +1,12 @@
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 export default function Home() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [pesan, setPesan] = useState('')
   const [loading, setLoading] = useState(false)
+  const router = useRouter()
 
   const handleLogin = async (e) => {
     e.preventDefault()
@@ -17,12 +19,16 @@ export default function Home() {
     })
     const data = await res.json()
     setLoading(false)
-    if (res.ok) setPesan('✅ Login sukses! Token: ' + data.token)
-    else setPesan('❌ ' + data.error)
+    if (res.ok) {
+      localStorage.setItem('token', data.token)
+      router.push('/dashboard') // INI YANG BIKIN PINDAH
+    } else {
+      setPesan('❌ ' + data.error)
+    }
   }
 
   return (
-    <div style={{minHeight:'100vh',display:'flex',alignItems:'center',justifyContent:'center',background:'#f5f5f5',fontFamily:'system-ui'}}>
+    <div style={{minHeight:'100vh',display:'flex',alignItems:'center',justifyContent:'center',background:'#f5f5',fontFamily:'system-ui'}}>
       <div style={{background:'white',padding:40,borderRadius:12,boxShadow:'0 4px 20px rgba(0,0,0,0.1)',width:'100%',maxWidth:360}}>
         <h1 style={{textAlign:'center',marginTop:0,marginBottom:30}}>TOTAL FRUIT</h1>
         <form onSubmit={handleLogin}>
@@ -32,7 +38,7 @@ export default function Home() {
             {loading?'Loading...':'Login'}
           </button>
         </form>
-        {pesan && <p style={{textAlign:'center',marginTop:20,marginBottom:0,padding:10,background:pesan.includes('✅')?'#d4edda':'#f8d7da',color:pesan.includes('✅')?'#155724':'#721c24',borderRadius:8,fontSize:14}}>{pesan}</p>}
+        {pesan && <p style={{textAlign:'center',marginTop:20,marginBottom:0,padding:10,background:'#f8d7da',color:'#721c24',borderRadius:8,fontSize:14}}>{pesan}</p>}
         <p style={{textAlign:'center',marginTop:20,fontSize:12,color:'#666'}}>Test: admin / 1234</p>
       </div>
     </div>
