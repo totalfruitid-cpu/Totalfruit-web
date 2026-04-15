@@ -1,1 +1,1 @@
-export default function Home(){ return <meta httpEquiv='refresh' content='0; url=/index.html' /> }
+export default function Home() { return <h1>TOTAL FRUIT JALAN BRO</h1> }
