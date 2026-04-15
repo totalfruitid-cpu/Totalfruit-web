@@ -28,7 +28,7 @@ export default function Dashboard() {
       'hero-desc': 'Potongan buah premium dengan pengalaman ala gourmet.',
       'hero-btn': 'LIHAT MENU',
       'about-title': 'TENTANG KAMI',
-      'about-text': 'TotalFruit adalah brand dessert premium <strong>pertama dan satu-satunya</strong> di Cigeulis yang berani bawa kualitas bintang 5 ke level gerobakan.<br><br>Kami memadukan bahan dasar berkualitas — buah grade A dan resep <strong>Kuah Sultan</strong> signature — yang diolah langsung oleh tangan setiap hari.<br><br><strong>TotalFruit: Gerobakan Rasa Sultan.</strong>',
+      'about-text': 'TotalFruit adalah brand dessert premium <strong>pertama dan satu-satunya</strong> di Cibaliung Pandeglang Banten yang berani bawa kualitas bintang 5 ke level gerobakan.<br><br>Kami memadukan bahan dasar berkualitas — buah grade A dan resep <strong>Kuah Sultan</strong> signature — yang diolah langsung oleh tangan setiap hari.<br><br><strong>TotalFruit: Gerobakan Rasa Sultan.</strong>',
       'juice-title': 'JUS',
       'juice-desc': '100% Bahan alami, tanpa pewarna atau perisa buatan',
       'dessert-title': 'SIGNATURE DESSERT',
