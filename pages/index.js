@@ -140,7 +140,7 @@ export default function Dashboard() {
         borderBottom:'1px solid #D4AF37',
         zIndex:998
       }}>
-        Pesan lebih cepat pake app <a href="https://total-go.vercel.app" target="_blank" rel="noopener noreferrer" style={{color:'#000',textDecoration:'underline',fontWeight:700}}>TotalGo</a> → FRESH. FAST. GOLD.
+        Pesan lebih cepat pake app <a href="https://total-go.vercel.app" target="_blank" rel="noopener noreferrer" style={{color:'#000',textDecoration:'underline',fontWeight:700}}>TotalGo</a> → Disc 10%.
       </div>
       {/* End Banner */}
 
