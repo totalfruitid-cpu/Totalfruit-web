@@ -219,15 +219,26 @@ export default function Dashboard() {
       )}
 
       {/* FOOTER */}
-      <footer>
-        <img src="/logo.png" alt="Total Fruit" className="footer-logo-img" />
-        <p style={{fontSize:'0.9rem', color:'#bbb', marginBottom:'20px'}}>Pariuk Nangkub Harmoni Land<br/>Cibaliung, Pandeglang, Banten</p>
-        <div style={{marginBottom:'30px'}}>
-          <a href="https://instagram.com/totalfruit.id" target="_blank" className="social-btn">INSTAGRAM</a>
-          <a href="https://wa.me/628512444513" target="_blank" className="social-btn">WHATSAPP</a>
-        </div>
-        <p style={{fontSize:'0.65rem', color:'#444', letterSpacing:'2px'}}>© 2026 TOTAL FRUIT • TASTE THE HEALTH • FEEL THE CLOUD</p>
-      </footer>
+<footer>
+  {/* Logo buah */}
+  <img src="/logo.png" alt="Total Fruit" className="footer-logo-img" style={{height:'80px', marginBottom:'12px'}} />
+  
+  {/* IG handle doang, tanpa button */}
+  <a href="https://instagram.com/totaldruit.id" target="_blank" style={{color:'#FFD700', fontSize:'16px', textDecoration:'none', display:'block', marginBottom:'15px'}}>
+    @totaldruit.id
+  </a>
+  
+  {/* Alamat */}
+  <p style={{fontSize:'0.9rem', color:'#bbb', marginBottom:'20px'}}>
+    Pariuk Nangkub Harmoni Land<br/>
+    Cibaliung, Pandeglang, Banten
+  </p>
+  
+  {/* Copyright pendek */}
+  <p style={{fontSize:'0.65rem', color:'#444', letterSpacing:'2px'}}>
+    © 2026 TOTAL FRUIT
+  </p>
+</footer>
 
    {/* TIKTOK FLOAT */}
 <a href="https://tiktok.com/@totalfruit.id" target="_blank" className="wa-float" style={{bottom:'95px', background:'#FFD700', boxShadow:'0 4px 15px rgba(255,215,0,0.4)'}}>
