@@ -77,7 +77,7 @@ export default function Dashboard() {
         /* Navbar - HEADER RAPIN */
     .navbar{position:fixed;top:0;left:0;width:100%;height:90px;background:#000;z-index:1000;border-bottom:2px solid #FFD700}
     .navbar-inner{width:100%;max-width:700px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:15px 20px 13px;position:relative}
-    .navbar-logo{height:34px}
+    .navbar-logo{height:45px}
     .nav-links{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:20px;font-size:12px;text-transform:uppercase;font-weight:600;align-items:center}
     .nav-links a{color:#ccc;text-decoration:none}
     .lang-box{position:absolute;right:20px;display:flex;gap:6px;align-items:center}
