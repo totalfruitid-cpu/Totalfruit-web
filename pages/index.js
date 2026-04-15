@@ -229,9 +229,11 @@ export default function Dashboard() {
         <p style={{fontSize:'0.65rem', color:'#444', letterSpacing:'2px'}}>© 2026 TOTAL FRUIT • TASTE THE HEALTH • FEEL THE CLOUD</p>
       </footer>
 
-      {/* TIKTOK FLOAT */}
+   {/* TIKTOK FLOAT */}
 <a href="https://tiktok.com/@totalfruit.id" target="_blank" className="wa-float" style={{bottom:'95px', background:'#FFD700', boxShadow:'0 4px 15px rgba(255,215,0,0.4)'}}>
-  <svg style={{width:'28px', fill:'#000'}} viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 0 01-5.2 1.74 2.89 0 012.31-4.64 2.93 0 01.88.13V9.4a6.84 0 00-.88-.05A6.33 0 005 20.1a6.34 0 0010.86-4.43v-7a8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
+  <svg style={{width:'28px', fill:'#000'}} viewBox="0 0 48 48">
+    <path d="M38.5,17.2c-2.6,0-5-0.9-6.9-2.4v13.3c0,6.5-5.3,11.8-11.8,11.8S8,34.6,8,28.1c0-6.5,5.3-11.8,11.8-11.8 c0.6,0,1.2,0.1,1.8,0.2v6.3c-0.6-0.2-1.2-0.3-1.8-0.3c-3.1,0-5.6,2.5-5.6,5.6s2.5,5.6,5.6s5.6-2.5,5.6-5.6V4h6.3 c0,0.4,0,0.8,0.1,1.2c0.4,3.1,2.9,5.5,6,5.8v6.2H38.5z"/>
+  </svg>
 </a>
 
 {/* WA FLOAT */}
