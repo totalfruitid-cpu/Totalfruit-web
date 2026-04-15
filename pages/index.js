@@ -91,36 +91,175 @@ export default function Dashboard() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
-      <style jsx global>{`
-        *{margin:0;padding:0;box-sizing:border-box}
-        html{scroll-behavior:smooth!important}
-        section,.hero{scroll-margin-top:80px!important}
-        body{background:#000;color:#fff;font-family:'Poppins',sans-serif;padding-top:80px!important;padding-bottom:160px!important}
-       .navbar{position:fixed;top:0;left:0;width:100%;height:80px!important;background:#000!important;display:flex!important;align-items:center!important;justify-content:space-between;padding:0 15px!important;z-index:1000;border-bottom:2px solid #FFD700!important;box-shadow:0 2px 15px rgba(255, 215, 0, 0.2)!important}
-       .navbar-scroll{display:flex;align-items:center;gap:12px;font-size:13px;overflow-x:auto;padding-right:10px;scrollbar-width:none;flex:1}
-       .navbar-scroll::-webkit-scrollbar{display:none}
-       .navbar-scroll a{color:#ccc;text-decoration:none;font-weight:600;transition:0.3s;white-space:nowrap}
-       .navbar-scroll a:hover{color:#FFD700}
-       .hero{min-height:auto;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:40px 20px 35px;text-align:center}
-       .title{font-family:'Cinzel',serif;font-size:2rem;font-weight:700;letter-spacing:2px;background:linear-gradient(90deg,#FFD700,#FFA500);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;text-shadow:0 0 30px rgba(255,215,0,0.3);white-space:nowrap}
-       .crown-1{position:relative;display:inline-block;background:linear-gradient(90deg,#FFD700,#FFA500);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-       .crown-1::before{content:'👑';position:absolute;top:-1.3em;left:50%;transform:translateX(-50%) scale(0.9);font-size:1em;-webkit-text-fill-color:initial;color:#FFD700;filter:drop-shadow(0 0 10px #FFD700);z-index:2}
-       .tagline{margin-top:-8px;margin-bottom:15px;font-size:0.75em;font-style:italic;color:#b5b5b5;letter-spacing:2px;text-transform:uppercase;opacity:0.8;white-space:nowrap}
-        p{margin-top:0;color:#ccc;margin-bottom:15px;max-width:500px;line-height:1.6;font-size:1.1rem}
-       .btn{background:linear-gradient(90deg,#FFD700,#FFA500);color:#000;padding:14px 32px;border:none;border-radius:30px;font-weight:600;font-size:1rem;cursor:pointer;text-decoration:none;transition:0.3s}
-       .btn:hover{opacity:0.85;transform:translateY(-2px)}
-        section{padding:35px 20px;max-width:700px;margin:0 auto;text-align:center}
-        section h2{font-family:'Cinzel',serif;font-size:2rem;color:#FFD700;margin-bottom:25px}
-       .wa-float{position:fixed;bottom:105px;right:25px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(37,211,102,0.4);transition:0.3s;z-index:999}
-       .wa-float:hover{transform:scale(1.1)}
-       .wa-float svg{width:32px;height:32px;fill:#fff}
-       .modal{display:block;position:fixed;z-index:9999;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,0.7)}
-       .modal-content{background:#111;margin:5vh auto;padding:15px;border:2px solid #D4AF37;width:90%;max-width:500px;max-height:85vh;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;box-sizing:border-box;border-radius:15px;position:relative}
-        footer{position:fixed;bottom:0;left:0;right:0;width:100%;background:#0a0a0a;padding:15px 20px;text-align:center;border-top:1px solid #FFD700;z-index:999;margin:0;box-sizing:border-box}
-        footer p{color:#999;margin:4px 0;font-size:0.85rem}
-        footer a{color:#FFD700;text-decoration:none}
-        footer a:hover{text-decoration:underline}
-      `}</style>
+<style jsx global>{`
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth!important}
+  section,.hero{scroll-margin-top:80px!important}
+  body{
+    background:#000;
+    color:#fff;
+    font-family:'Poppins',sans-serif;
+    padding-top:80px!important;
+    padding-bottom:160px!important;
+  }
+ .container{
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+  }
+ .navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:80px!important;
+    background:#000!important;
+    z-index:1000;
+    border-bottom:2px solid #FFD700!important;
+    box-shadow:0 2px 15px rgba(255, 215, 0, 0.2)!important;
+  }
+ .navbar-inner{
+    max-width: 700px;
+    margin: 0 auto;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between;
+    padding:0 20px!important;
+    height:100%;
+  }
+ .navbar-scroll{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:13px;
+    overflow-x:auto;
+    padding-right:10px;
+    scrollbar-width:none;
+    flex:1;
+  }
+ .navbar-scroll::-webkit-scrollbar{display:none}
+ .navbar-scroll a{
+    color:#ccc;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+    white-space:nowrap;
+  }
+ .navbar-scroll a:hover{color:#FFD700}
+ .hero{
+    min-height:auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    padding:40px 0 35px;
+    text-align:center;
+  }
+ .title{
+    font-family:'Cinzel',serif;
+    font-size:2rem;
+    font-weight:700;
+    letter-spacing:2px;
+    background:linear-gradient(90deg,#FFD700,#FFA500);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    margin-bottom:8px;
+    text-shadow:0 0 30px rgba(255,215,0,0.3);
+    white-space:nowrap;
+  }
+ .crown-1{
+    position:relative;
+    display:inline-block;
+    background:linear-gradient(90deg,#FFD700,#FFA500);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+ .crown-1::before{
+    content:'👑';
+    position:absolute;
+    top:-1.3em;
+    left:50%;
+    transform:translateX(-50%) scale(0.9);
+    font-size:1em;
+    -webkit-text-fill-color:initial;
+    color:#FFD700;
+    filter:drop-shadow(0 0 10px #FFD700);
+    z-index:2;
+  }
+ .tagline{
+    margin-top:-8px;
+    margin-bottom:15px;
+    font-size:0.75em;
+    font-style:italic;
+    color:#b5b5b5;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    opacity:0.8;
+  }
+  p{
+    margin-top:0;
+    color:#ccc;
+    margin-bottom:15px;
+    line-height:1.6;
+    font-size:1.1rem;
+  }
+ .btn{
+    background:linear-gradient(90deg,#FFD700,#FFA500);
+    color:#000;
+    padding:14px 32px;
+    border:none;
+    border-radius:30px;
+    font-weight:600;
+    font-size:1rem;
+    cursor:pointer;
+    text-decoration:none;
+    transition:0.3s;
+    display: inline-block;
+  }
+ .btn:hover{opacity:0.85;transform:translateY(-2px)}
+  section{
+    padding:35px 0;
+    text-align:center;
+  }
+  section h2{font-family:'Cinzel',serif;font-size:2rem;color:#FFD700;margin-bottom:25px}
+ .wa-float{
+    position:fixed;
+    bottom:105px;
+    right:25px;
+    background:#25D366;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 4px 15px rgba(37,211,102,0.4);
+    transition:0.3s;
+    z-index:999;
+  }
+ .wa-float:hover{transform:scale(1.1)}
+ .wa-float svg{width:32px;height:32px;fill:#fff}
+ .modal{display:block;position:fixed;z-index:9999;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,0.7)}
+ .modal-content{background:#111;margin:5vh auto;padding:15px;border:2px solid #D4AF37;width:90%;max-width:500px;max-height:85vh;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;box-sizing:border-box;border-radius:15px;position:relative}
+  footer{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    width:100%;
+    background:#0a0a0a;
+    padding:15px 20px;
+    text-align:center;
+    border-top:1px solid #FFD700;
+    z-index:999;
+    margin:0;
+    box-sizing:border-box;
+  }
+  footer p{color:#999;margin:4px 0;font-size:0.85rem}
+  footer a{color:#FFD700;text-decoration:none}
+  footer a:hover{text-decoration:underline}
+`}</style>
 
       <div className="navbar">
         <img src="/logo.png" alt="Total Fruit" style={{height:35,marginRight:15}} />
