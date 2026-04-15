@@ -120,32 +120,32 @@ export default function Dashboard() {
     box-shadow:0 2px 15px rgba(255, 215, 0, 0.2)!important;
   }
  .navbar-inner{
-    max-width: 700px;
-    margin: 0 auto;
-    display:flex!important;
-    align-items:center!important;
-    justify-content:space-between;
-    padding:0 20px!important;
-    height:100%;
-  }
- .navbar-scroll{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    font-size:13px;
-    overflow-x:auto;
-    padding-right:10px;
-    scrollbar-width:none;
-    flex:1;
-  }
- .navbar-scroll::-webkit-scrollbar{display:none}
- .navbar-scroll a{
-    color:#ccc;
-    text-decoration:none;
-    font-weight:600;
-    transition:0.3s;
-    white-space:nowrap;
-  }
+  max-width: 700px;
+  margin: 0 auto;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between;
+  padding:0 15px!important;
+  height:100%;
+  gap: 10px;
+}
+.navbar-scroll{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:12px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  flex:1;
+  white-space:nowrap;
+}
+.navbar-scroll::-webkit-scrollbar{display:none}
+.navbar-scroll a{
+  color:#ccc;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
  .navbar-scroll a:hover{color:#FFD700}
  .hero{
     min-height:auto;
