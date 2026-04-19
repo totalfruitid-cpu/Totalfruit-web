@@ -6,6 +6,11 @@ const [lang, setLang] = useState('id')
 const [activeModal, setActiveModal] = useState(null)
 const [dessertModal, setDessertModal] = useState({show: false, title: '', price: '', img: ''})
 
+// State buat add-ons
+const [orderStep, setOrderStep] = useState(1)
+const [selectedSize, setSelectedSize] = useState(null)
+const [selectedAddons, setSelectedAddons] = useState([])
+
 const translations = {
 en: {
 'hero-title': 'TOTAL FRUIT',
@@ -19,7 +24,11 @@ en: {
 'juice-desc': '100% Natural ingredients, no artificial coloring or flavors',
 'dessert-title': 'SIGNATURE DESSERT',
 'dessert-desc': 'No Water • No Coconut Milk • No Added Sugar • Rich Fiber',
-'dessert-modal-btn': 'Order Here'
+'dessert-modal-btn': 'Order Here',
+'addons-title': 'POPULAR ADD-ONS',
+'addons-note': '*Popping boba only in Sultan Edition',
+'checkout-btn': 'Checkout via WhatsApp',
+'back-btn': 'Back'
 },
 id: {
 'hero-title': 'TOTAL FRUIT',
@@ -33,16 +42,69 @@ id: {
 'juice-desc': '100% Bahan alami, tanpa pewarna atau perisa buatan',
 'dessert-title': 'SIGNATURE DESSERT',
 'dessert-desc': 'Tanpa Air • Tanpa Santan • Tanpa Tambahan Gula • Kaya Serat',
-'dessert-modal-btn': 'Pesan Sekarang'
+'dessert-modal-btn': 'Pesan Sekarang',
+'addons-title': 'ADD-ONS POPULER',
+'addons-note': '*Popping boba hanya di Sultan Edition',
+'checkout-btn': 'Checkout via WhatsApp',
+'back-btn': 'Kembali'
 }
 }
 
 const juiceMenu = [
-{ id: 'avocado', name: '🥑 Alpukat', title: 'AVOCADO SERIES', img: '/Menu-avocado.png' },
-{ id: 'mango', name: '🥭 Mangga', title: 'MANGO SERIES', img: '/Menu-mango.png' },
-{ id: 'banana', name: '🍌 Pisang', title: 'BANANA SERIES', img: '/Menu-banana.png' },
-{ id: 'strawberry', name: '🍓 Stroberi', title: 'STRAWBERRY SERIES', img: '/Menu-strawberry.png' },
-{ id: 'dragon', name: '🐉 Buah Naga', title: 'DRAGON SERIES', img: '/Menu-dragonfruit.png' },
+{
+  id: 'avocado', name: '🥑 Alpukat', title: 'AVOCADO SERIES', img: '/Menu-avocado.png',
+  sizes: [{name: 'Lite', price: 18}, {name: 'Healthy', price: 25}, {name: 'Sultan Edition', price: 45}],
+  addons: [
+    {name: 'Avocado Cube', price: 5, icon: '🥑'},
+    {name: 'Chia Seeds', price: 5, icon: '🌰'},
+    {name: 'Shredded Cheese', price: 5, icon: '🧀'},
+    {name: 'Sultan Sauce', price: 10, icon: '👑'},
+    {name: 'Popping Boba', price: 5, icon: '⚪', sultanOnly: true}
+  ]
+},
+{
+  id: 'mango', name: '🥭 Mangga', title: 'MANGO SERIES', img: '/Menu-mango.png',
+  sizes: [{name: 'Lite', price: 18}, {name: 'Healthy', price: 25}, {name: 'Sultan Edition', price: 45}],
+  addons: [
+    {name: 'Mango Cube', price: 5, icon: '🥭'},
+    {name: 'Chia Seeds', price: 5, icon: '🌰'},
+    {name: 'Shredded Cheese', price: 5, icon: '🧀'},
+    {name: 'Sultan Sauce', price: 10, icon: '👑'},
+    {name: 'Popping Boba', price: 5, icon: '⚪', sultanOnly: true}
+  ]
+},
+{
+  id: 'banana', name: '🍌 Pisang', title: 'BANANA SERIES', img: '/Menu-banana.png',
+  sizes: [{name: 'Lite', price: 18}, {name: 'Healthy', price: 25}, {name: 'Sultan Edition', price: 45}],
+  addons: [
+    {name: 'Chia Seeds', price: 5, icon: '🌰'},
+    {name: 'Shredded Cheese', price: 5, icon: '🧀'},
+    {name: 'Sultan Sauce', price: 10, icon: '👑'},
+    {name: 'Popping Boba', price: 5, icon: '⚪', sultanOnly: true}
+  ]
+},
+{
+  id: 'strawberry', name: '🍓 Stroberi', title: 'STRAWBERRY SERIES', img: '/Menu-strawberry.png',
+  sizes: [{name: 'Lite', price: 18}, {name: 'Healthy', price: 25}, {name: 'Sultan Edition', price: 45}],
+  addons: [
+    {name: 'Strawberry Slice', price: 5, icon: '🍓'},
+    {name: 'Chia Seeds', price: 5, icon: '🌰'},
+    {name: 'Shredded Cheese', price: 5, icon: '🧀'},
+    {name: 'Sultan Sauce', price: 10, icon: '👑'},
+    {name: 'Popping Boba', price: 5, icon: '⚪', sultanOnly: true}
+  ]
+},
+{
+  id: 'dragon', name: '🐉 Buah Naga', title: 'DRAGON SERIES', img: '/Menu-dragonfruit.png',
+  sizes: [{name: 'Lite', price: 18}, {name: 'Healthy', price: 25}, {name: 'Sultan Edition', price: 45}],
+  addons: [
+    {name: 'Dragon Cube', price: 5, icon: '🐉'},
+    {name: 'Chia Seeds', price: 5, icon: '🌰'},
+    {name: 'Shredded Cheese', price: 5, icon: '🧀'},
+    {name: 'Sultan Sauce', price: 10, icon: '👑'},
+    {name: 'Popping Boba', price: 5, icon: '⚪', sultanOnly: true}
+  ]
+},
 ]
 
 useEffect(() => {
@@ -54,11 +116,54 @@ const switchLang = (newLang) => {
 setLang(newLang); localStorage.setItem('lang', newLang)
 }
 
-const openJuice = (item) => { setActiveModal(item); document.body.style.overflow = 'hidden' }
+const openJuice = (item) => {
+  setActiveModal(item);
+  setOrderStep(1);
+  setSelectedSize(null);
+  setSelectedAddons([]);
+  document.body.style.overflow = 'hidden'
+}
 const openDessert = (title, price, img) => { setDessertModal({show: true, title, price, img}); document.body.style.overflow = 'hidden' }
-const closeModal = () => { setActiveModal(null); setDessertModal({show: false, title: '', price: '', img: ''}); document.body.style.overflow = 'auto' }
+const closeModal = () => {
+  setActiveModal(null);
+  setDessertModal({show: false, title: '', price: '', img: ''});
+  setOrderStep(1);
+  setSelectedSize(null);
+  setSelectedAddons([]);
+  document.body.style.overflow = 'auto'
+}
 
-const t = (key) => translations[lang][key] || key
+const selectSize = (size) => {
+  setSelectedSize(size);
+  setOrderStep(2);
+  setSelectedAddons([]);
+}
+
+const toggleAddon = (addon) => {
+  if(addon.sultanOnly && selectedSize?.name!== 'Sultan Edition') return;
+  if(selectedAddons.find(a => a.name === addon.name)){
+    setSelectedAddons(selectedAddons.filter(a => a.name!== addon.name))
+  } else {
+    setSelectedAddons([...selectedAddons, addon])
+  }
+}
+
+const calculateTotal = () => {
+  if(!selectedSize) return 0;
+  const addonTotal = selectedAddons.reduce((sum, addon) => sum + addon.price, 0);
+  return selectedSize.price + addonTotal;
+}
+
+const checkoutWA = () => {
+  const addonText = selectedAddons.length > 0
+  ? `%0AAdd-ons: ${selectedAddons.map(a => a.name).join(', ')}`
+    : '';
+  const total = calculateTotal();
+  const text = `Halo Total Fruit, mau order ${activeModal.name} ${selectedSize.name}${addonText}%0ATotal: IDR ${total}K`;
+  window.open(`https://wa.me/6285124441513?text=${text}`)
+}
+
+const t = (key) => translations[key] || key
 
 return (
 <>
@@ -93,9 +198,13 @@ section p{color:#ccc;line-height:1.6;margin-bottom:20px;max-width:100%}
 .btn-gold{background:linear-gradient(90deg,#FFD700,#FFA500);color:#000;padding:12px 25px;border-radius:25px;font-weight:bold;border:none;cursor:pointer;display:inline-block;text-decoration:none}
 .menu-btn{width:100%;background:#111;border:1px solid #D4AF37;color:#D4AF37;padding:16px;border-radius:15px;margin-bottom:12px;font-weight:bold;cursor:pointer}
 
-.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px}
-.modal-content{background:#111;width:100%;max-width:450px;border-radius:20px;border:1px solid #FFD700;padding:25px;position:relative;text-align:center}
+.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
+.modal-content{background:#111;width:100%;max-width:450px;border-radius:20px;border:1px solid #FFD700;padding:25px;position:relative;text-align:center;max-height:90vh;overflow-y:auto}
 .close-modal{position:absolute;top:10px;right:20px;font-size:32px;color:#FFD700;cursor:pointer}
+
+.addon-item{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#1a1a1a;border:1px solid #333;border-radius:10px;margin-bottom:8px;cursor:pointer}
+.addon-item.active{border-color:#FFD700;background:#2a2300}
+.addon-item.disabled{opacity:0.4;cursor:not-allowed}
 
 footer{background:#050505;padding:60px 20px 30px;text-align:center;border-top:1px solid #D4AF37;margin-top:40px}
 
@@ -176,17 +285,57 @@ footer{background:#050505;padding:60px 20px 30px;text-align:center;border-top:1p
 
   </div>
 
+{/* MODAL JUICE + ADDONS */}
 {activeModal && (
 <div className="modal" onClick={closeModal}>
 <div className="modal-content" onClick={(e) => e.stopPropagation()}>
 <span className="close-modal" onClick={closeModal}>×</span>
-<h2 style={{fontSize:'1.2rem', marginBottom:'15px'}}>{activeModal.title}</h2>
-<img src={activeModal.img} style={{width:'100%', borderRadius:'10px', marginBottom:'20px'}} alt="Menu" />
-<div style={{display:'flex', flexDirection:'column', gap:'10px'}}>
-<button className="btn-gold" onClick={() => window.open(`https://wa.me/6285124441513?text=Order ${activeModal.id} Lite`)}>LITE - 18K</button>
-<button className="btn-gold" onClick={() => window.open(`https://wa.me/6285124441513?text=Order ${activeModal.id} Healthy`)}>HEALTHY - 25K</button>
-<button className="btn-gold" onClick={() => window.open(`https://wa.me/6285124441513?text=Order ${activeModal.id} Sultan Edition`)}>SULTAN - 45K 👑</button>
-</div>
+
+{orderStep === 1 && (
+  <>
+    <h2 style={{fontSize:'1.2rem', marginBottom:'15px'}}>{activeModal.title}</h2>
+    <img src={activeModal.img} style={{width:'100%', borderRadius:'10px', marginBottom:'20px'}} alt="Menu" />
+    <div style={{display:'flex', flexDirection:'column', gap:'10px'}}>
+      {activeModal.sizes.map(size => (
+        <button key={size.name} className="btn-gold" onClick={() => selectSize(size)}>
+          {size.name} - {size.price}K {size.name === 'Sultan Edition' && '👑'}
+        </button>
+      ))}
+    </div>
+  </>
+)}
+
+{orderStep === 2 && (
+  <>
+    <h2 style={{fontSize:'1.2rem', marginBottom:'5px'}}>{activeModal.name} {selectedSize.name}</h2>
+    <p style={{color:'#D4AF37', fontSize:'1.5rem', marginBottom:'20px'}}>IDR {calculateTotal()}K</p>
+
+    <h3 style={{fontSize:'1rem', color:'#FFD700', marginBottom:'15px', textAlign:'left'}}>{t('addons-title')}</h3>
+
+    {activeModal.addons.map(addon => {
+      const isDisabled = addon.sultanOnly && selectedSize.name!== 'Sultan Edition';
+      const isActive = selectedAddons.find(a => a.name === addon.name);
+      return (
+        <div
+          key={addon.name}
+          className={`addon-item ${isActive? 'active' : ''} ${isDisabled? 'disabled' : ''}`}
+          onClick={() =>!isDisabled && toggleAddon(addon)}
+        >
+          <span>{addon.icon} {addon.name}</span>
+          <span>+{addon.price}K</span>
+        </div>
+      )
+    })}
+
+    <p style={{fontSize:'0.7rem', color:'#666', marginTop:'10px', textAlign:'left'}}>{t('addons-note')}</p>
+
+    <div style={{display:'flex', gap:'10px', marginTop:'20px'}}>
+      <button className="menu-btn" style={{flex:1}} onClick={() => setOrderStep(1)}>{t('back-btn')}</button>
+      <button className="btn-gold" style={{flex:2}} onClick={checkoutWA}>{t('checkout-btn')}</button>
+    </div>
+  </>
+)}
+
 </div>
 </div>
 )}
@@ -208,7 +357,7 @@ footer{background:#050505;padding:60px 20px 30px;text-align:center;border-top:1p
 <footer>
   <img src="/logo.png" alt="Total Fruit" className="footer-logo-img" style={{height:'80px', marginBottom:'12px'}} />
 <a href="https://instagram.com/totalfruit.id" target="_blank" style={{color:'#FFD700', fontSize:'16px', textDecoration:'none', display:'block', marginBottom:'15px'}}>
-@totaldruit.id
+@totalfruit.id
 </a>
 
   <p style={{fontSize:'0.9rem', color:'#bbb', marginBottom:'20px'}}>
@@ -220,12 +369,10 @@ footer{background:#050505;padding:60px 20px 30px;text-align:center;border-top:1p
   </p>
 </footer>
 
-{/* TIKTOK FLOAT PAKE PNG */}
 <a href="https://tiktok.com/@totalfruit.id" target="_blank" className="wa-float" style={{bottom:'95px', background:'#FFD700', border:'1px solid #000', boxShadow:'0 4px 15px rgba(255,215,0,0.4)'}}>
   <img src="/tiktok.png" alt="TikTok" style={{width:'26px', height:'26px', objectFit:'contain'}} />
 </a>
 
-{/* WA FLOAT PAKE PNG */}
 <a href="https://wa.me/6285124441513" target="_blank" className="wa-float">
   <img src="/Whatsapp.png" alt="WhatsApp" style={{width:'30px', height:'30px', objectFit:'contain'}} />
 </a>
