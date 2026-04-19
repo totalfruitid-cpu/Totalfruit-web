@@ -72,16 +72,16 @@ export default function Dashboard() {
         *{margin:0;padding:0;box-sizing:border-box}
         html{scroll-behavior:smooth}
         body{background:#000;color:#fff;font-family:'Poppins',sans-serif;padding-top:90px}
-    .container{max-width:700px;margin:0 auto;padding:0 20px;text-align:center}
+   .container{max-width:700px;margin:0 auto;padding:0 20px;text-align:center}
 
         /* Navbar - HEADER RAPIN */
-    .navbar{position:fixed;top:0;left:0;width:100%;height:90px;background:#000;z-index:1000;border-bottom:2px solid #FFD700}
-    .navbar-inner{width:100%;max-width:700px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:15px 20px 13px;position:relative}
-    .navbar-logo{height:45px}
-    .nav-links{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:20px;font-size:12px;text-transform:uppercase;font-weight:600;align-items:center}
-    .nav-links a{color:#ccc;text-decoration:none}
-    .lang-box{position:absolute;right:20px;display:flex;gap:6px;align-items:center}
-    .lang-btn{cursor:pointer;transition:0.3s;font-size:11px;font-weight:600}
+   .navbar{position:fixed;top:0;left:0;width:100%;height:90px;background:#000;z-index:1000;border-bottom:2px solid #FFD700}
+   .navbar-inner{width:100%;max-width:700px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:15px 20px 13px;position:relative}
+   .navbar-logo{height:45px}
+   .nav-links{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:20px;font-size:12px;text-transform:uppercase;font-weight:600;align-items:center}
+   .nav-links a{color:#ccc;text-decoration:none}
+   .lang-box{position:absolute;right:20px;display:flex;gap:6px;align-items:center}
+   .lang-btn{cursor:pointer;transition:0.3s;font-size:11px;font-weight:600}
 
         /* Sections */
         section{padding:50px 0;text-align:center}
@@ -89,25 +89,25 @@ export default function Dashboard() {
         section p{color:#ccc;line-height:1.6;margin-bottom:20px;max-width:100%}
 
         /* Hero - JARAK CROWN DIBENERIN */
-    .hero{padding-top:85px}
-    .title{font-family:'Cinzel',serif;font-size:2.2rem;color:#FFD700;margin-bottom:8px;position:relative;display:inline-block}
-    .crown-1::before{content:'👑';position:absolute;top:-1.9em;left:50%;transform:translateX(-50%) scale(0.9);font-size:1em;color:#FFD700;filter:drop-shadow(0 0 10px #FFD700)}
+   .hero{padding-top:85px}
+   .title{font-family:'Cinzel',serif;font-size:2.2rem;color:#FFD700;margin-bottom:8px;position:relative;display:inline-block}
+   .crown-1::before{content:'👑';position:absolute;top:-1.9em;left:50%;transform:translateX(-50%) scale(0.9);font-size:1em;color:#FFD700;filter:drop-shadow(0 0 10px #FFD700)}
 
         /* Buttons */
-    .btn-gold{background:linear-gradient(90deg,#FFD700,#FFA500);color:#000;padding:12px 25px;border-radius:25px;font-weight:bold;border:none;cursor:pointer;display:inline-block;text-decoration:none}
-    .menu-btn{width:100%;background:#111;border:1px solid #D4AF37;color:#D4AF37;padding:16px;border-radius:15px;margin-bottom:12px;font-weight:bold;cursor:pointer}
+   .btn-gold{background:linear-gradient(90deg,#FFD700,#FFA500);color:#000;padding:12px 25px;border-radius:25px;font-weight:bold;border:none;cursor:pointer;display:inline-block;text-decoration:none}
+   .menu-btn{width:100%;background:#111;border:1px solid #D4AF37;color:#D4AF37;padding:16px;border-radius:15px;margin-bottom:12px;font-weight:bold;cursor:pointer}
 
         /* Modal */
-    .modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px}
-    .modal-content{background:#111;width:100%;max-width:450px;border-radius:20px;border:1px solid #FFD700;padding:25px;position:relative;text-align:center}
-    .close-modal{position:absolute;top:10px;right:20px;font-size:32px;color:#FFD700;cursor:pointer}
+   .modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px}
+   .modal-content{background:#111;width:100%;max-width:450px;border-radius:20px;border:1px solid #FFD700;padding:25px;position:relative;text-align:center}
+   .close-modal{position:absolute;top:10px;right:20px;font-size:32px;color:#FFD700;cursor:pointer}
 
         /* Footer */
         footer{background:#050505;padding:60px 20px 30px;text-align:center;border-top:1px solid #D4AF37;margin-top:40px}
-    .footer-logo-img{height:45px;margin-bottom:20px}
-    .social-btn{color:#D4AF37;text-decoration:none;font-size:0.75rem;border:1px solid #D4AF37;padding:8px 16px;border-radius:5px;margin:0 5px}
+   .footer-logo-img{height:45px;margin-bottom:20px}
+   .social-btn{color:#D4AF37;text-decoration:none;font-size:0.75rem;border:1px solid #D4AF37;padding:8px 16px;border-radius:5px;margin:0 5px}
 
-    .wa-float{position:fixed;bottom:25px;right:25px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(37,211,102,0.4);z-index:999}
+   .wa-float{position:fixed;bottom:25px;right:25px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(37,211,102,0.4);z-index:999}
       `}</style>
 
       {/* NAVBAR */}
@@ -195,9 +195,9 @@ export default function Dashboard() {
             <h2 style={{fontSize:'1.2rem', marginBottom:'15px'}}>{activeModal.title}</h2>
             <img src={activeModal.img} style={{width:'100%', borderRadius:'10px', marginBottom:'20px'}} alt="Menu" />
             <div style={{display:'flex', flexDirection:'column', gap:'10px'}}>
-              <button className="btn-gold" onClick={() => window.open(`https://wa.me/628512444513?text=Order ${activeModal.id} Lite`)}>LITE - 18K</button>
-              <button className="btn-gold" onClick={() => window.open(`https://wa.me/628512444513?text=Order ${activeModal.id} Healthy`)}>HEALTHY - 25K</button>
-              <button className="btn-gold" onClick={() => window.open(`https://wa.me/628512444513?text=Order ${activeModal.id} Sultan Edition`)}>SULTAN - 45K 👑</button>
+              <button className="btn-gold" onClick={() => window.open(`https://wa.me/6285124441513?text=Order ${activeModal.id} Lite`)}>LITE - 18K</button>
+              <button className="btn-gold" onClick={() => window.open(`https://wa.me/6285124441513?text=Order ${activeModal.id} Healthy`)}>HEALTHY - 25K</button>
+              <button className="btn-gold" onClick={() => window.open(`https://wa.me/6285124441513?text=Order ${activeModal.id} Sultan Edition`)}>SULTAN - 45K 👑</button>
             </div>
           </div>
         </div>
@@ -211,7 +211,7 @@ export default function Dashboard() {
             <img src={dessertModal.img} style={{width:'100%', borderRadius:'10px', marginBottom:'15px'}} />
             <h2 style={{color:'#D4AF37'}}>{dessertModal.title}</h2>
             <p style={{fontSize:'1.5rem', margin:'10px 0'}}>IDR {dessertModal.price}</p>
-            <button className="btn-gold" style={{width:'100%'}} onClick={() => window.open(`https://wa.me/628512444513?text=Halo Total Fruit, mau order ${dessertModal.title}`)}>
+            <button className="btn-gold" style={{width:'100%'}} onClick={() => window.open(`https://wa.me/6285124441513?text=Halo Total Fruit, mau order ${dessertModal.title}`)}>
               {t('dessert-modal-btn')}
             </button>
           </div>
@@ -222,18 +222,18 @@ export default function Dashboard() {
 <footer>
   {/* Logo buah */}
   <img src="/logo.png" alt="Total Fruit" className="footer-logo-img" style={{height:'80px', marginBottom:'12px'}} />
-  
+
   {/* IG handle doang, tanpa button */}
   <a href="https://instagram.com/totaldruit.id" target="_blank" style={{color:'#FFD700', fontSize:'16px', textDecoration:'none', display:'block', marginBottom:'15px'}}>
     @totaldruit.id
   </a>
-  
+
   {/* Alamat */}
   <p style={{fontSize:'0.9rem', color:'#bbb', marginBottom:'20px'}}>
     Pariuk Nangkub Harmoni Land<br/>
     Cibaliung, Pandeglang, Banten
   </p>
-  
+
   {/* Copyright pendek */}
   <p style={{fontSize:'0.65rem', color:'#444', letterSpacing:'2px'}}>
     © 2026 TOTAL FRUIT
@@ -243,12 +243,12 @@ export default function Dashboard() {
    {/* TIKTOK FLOAT */}
 <a href="https://tiktok.com/@totalfruit.id" target="_blank" className="wa-float" style={{bottom:'95px', background:'#FFD700', boxShadow:'0 4px 15px rgba(255,215,0,0.4)'}}>
   <svg style={{width:'26px', height:'26px', fill:'#000'}} viewBox="0 0 448 512">
-    <path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0h88a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/>
+    <path d="M448,209.91a210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0h88a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/>
   </svg>
 </a>
 
 {/* WA FLOAT */}
-<a href="https://wa.me/628512444513" target="_blank" className="wa-float">
+<a href="https://wa.me/6285124441513" target="_blank" className="wa-float">
   <svg style={{width:'30px', fill:'white'}} viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.405c0 6.555-5.332 11.887-11.887 11.887-2.012 0-3.987-.512-5.741-1.488l-6.244 1.713zm5.862-4.102l.362.216c1.3.774 2.793 1.183 4.317 1.183 4.608 0 8.356-3.748 8.356-8.356 0-2.233-.869-4.332-2.447-5.91s-3.677-2.447-5.91-2.447c-4.607 0-8.355 3.748-8.355 8.356 0 1.638.481 3.232 1.391 4.611l.237.359-1.002 3.66 3.75-.989z"/></svg>
 </a>
     </>
