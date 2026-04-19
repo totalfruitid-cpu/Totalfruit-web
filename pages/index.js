@@ -221,7 +221,7 @@ return (
   {/* Logo buah */}    
   <img src="/logo.png" alt="Total Fruit" className="footer-logo-img" style={{height:'80px', marginBottom:'12px'}} />  {/* IG handle doang, tanpa button */}  
 <a href="https://instagram.com/totaldruit.id" target="_blank" style={{color:'#FFD700', fontSize:'16px', textDecoration:'none', display:'block', marginBottom:'15px'}}>  
-@totalfruit.id  
+@totaldruit.id  
 </a>  {/* Alamat */}
 
   <p style={{fontSize:'0.9rem', color:'#bbb', marginBottom:'20px'}}>    
@@ -231,26 +231,11 @@ return (
     © 2026 TOTAL FRUIT    
   </p>    
 </footer>  {/* TIKTOK FLOAT */}  
-<a 
-  href="https://tiktok.com/@totalfruit.id" 
-  target="_blank" 
-  rel="noopener noreferrer"
-  className="wa-float"
-  style={{
-    bottom:'95px',
-    background:'#FFD700',
-    boxShadow:'0 4px 15px rgba(255,215,0,0.4)'
-  }}
->
-  <svg 
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 448 512" 
-    width="26" 
-    height="26" 
-    fill="#000"
-  >
-    <path d="M448 209.9a210.1 210.1 0 0 1-122.8-39.2v178.7A162.6 162.6 0 1 1 185 188.3v89.9a74.6 74.6 0 1 0 52.2 71.2V0h88a121.2 121.2 0 0 0 1.9 22.2 122.2 122.2 0 0 0 54.1 80.2 121.4 121.4 0 0 0 67 20.1z"/>
+<a href="https://tiktok.com/@totalfruit.id" target="_blank" className="wa-float" style={{bottom:'95px', background:'#000', border:'1px solid #FFD700', boxShadow:'0 4px 15px rgba(255,215,0,0.4)'}}>
+  <svg style={{width:'26px', height:'26px', fill:'#FFD700'}} viewBox="0 0 448 512">
+    <path d="M448,209.91a210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0h88a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/>
   </svg>
+</a>
 
 </a>  {/* WA FLOAT */}
 <a href="https://wa.me/6285124441513" target="_blank" className="wa-float">
