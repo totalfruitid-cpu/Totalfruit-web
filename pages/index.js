@@ -221,7 +221,7 @@ return (
   {/* Logo buah */}    
   <img src="/logo.png" alt="Total Fruit" className="footer-logo-img" style={{height:'80px', marginBottom:'12px'}} />  {/* IG handle doang, tanpa button */}  
 <a href="https://instagram.com/totaldruit.id" target="_blank" style={{color:'#FFD700', fontSize:'16px', textDecoration:'none', display:'block', marginBottom:'15px'}}>  
-@totaldruit.id  
+@totalfruit.id  
 </a>  {/* Alamat */}
 
   <p style={{fontSize:'0.9rem', color:'#bbb', marginBottom:'20px'}}>    
@@ -231,10 +231,27 @@ return (
     © 2026 TOTAL FRUIT    
   </p>    
 </footer>  {/* TIKTOK FLOAT */}  
-<a href="https://tiktok.com/@totalfruit.id" target="_blank" className="wa-float" style={{bottom:'95px', background:'#FFD700', boxShadow:'0 4px 15px rgba(255,215,0,0.4)'}}>  
-<svg style={{width:'26px', height:'26px', fill:'#000'}} viewBox="0 0 448 512">  
-<path d="M448,209.91a210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0h88a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/>  
-</svg>  
+<a 
+  href="https://tiktok.com/@totalfruit.id" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  className="wa-float"
+  style={{
+    bottom:'95px',
+    background:'#FFD700',
+    boxShadow:'0 4px 15px rgba(255,215,0,0.4)'
+  }}
+>
+  <svg 
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 448 512" 
+    width="26" 
+    height="26" 
+    fill="#000"
+  >
+    <path d="M448 209.9a210.1 210.1 0 0 1-122.8-39.2v178.7A162.6 162.6 0 1 1 185 188.3v89.9a74.6 74.6 0 1 0 52.2 71.2V0h88a121.2 121.2 0 0 0 1.9 22.2 122.2 122.2 0 0 0 54.1 80.2 121.4 121.4 0 0 0 67 20.1z"/>
+  </svg>
+
 </a>  {/* WA FLOAT */}
 <a href="https://wa.me/6285124441513" target="_blank" className="wa-float">
 <svg style={{width:'30px', fill:'white'}} viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.405c0 6.555-5.332 11.887-11.887 11.887-2.012 0-3.987-.512-5.741-1.488l-6.244 1.713zm5.862-4.102l.362.216c1.3.774 2.793 1.183 4.317 1.183 4.608 0 8.356-3.748 8.356-8.356 0-2.233-.869-4.332-2.447-5.91s-3.677-2.447-5.91-2.447c-4.607 0-8.355 3.748-8.355 8.356 0 1.638.481 3.232 1.391 4.611l.237.359-1.002 3.66 3.75-.989z"/></svg>
