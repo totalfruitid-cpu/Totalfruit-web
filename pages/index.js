@@ -230,9 +230,9 @@ return (
   </p>  {/* Copyright pendek */}    <p style={{fontSize:'0.65rem', color:'#444', letterSpacing:'2px'}}>    
     © 2026 TOTAL FRUIT    
   </p>    
-</footer>  {/* TIKTOK FLOAT */}  
-<a href="https://tiktok.com/@totalfruit.id" target="_blank" className="wa-float" style={{bottom:'95px', background:'#000', border:'1px solid #FFD700', boxShadow:'0 4px 15px rgba(255,215,0,0.4)'}}>
-  <svg style={{width:'26px', height:'26px', fill:'#FFD700'}} viewBox="0 0 448 512">
+{/* TIKTOK FLOAT */}
+<a href="https://tiktok.com/@totalfruit.id" target="_blank" className="wa-float" style={{bottom:'95px', background:'#FFD700', border:'1px solid #000', boxShadow:'0 4px 15px rgba(255,215,0,0.4)'}}>
+  <svg style={{width:'26px', height:'26px', fill:'#000'}} viewBox="0 0 448 512">
     <path d="M448,209.91a210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0h88a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/>
   </svg>
 </a>
