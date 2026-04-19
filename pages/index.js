@@ -192,9 +192,9 @@ return (
 <h2 style={{fontSize:'1.2rem', marginBottom:'15px'}}>{activeModal.title}</h2>
 <img src={activeModal.img} style={{width:'100%', borderRadius:'10px', marginBottom:'20px'}} alt="Menu" />
 <div style={{display:'flex', flexDirection:'column', gap:'10px'}}>
-<button className="btn-gold" onClick={() => window.open(https://wa.me/6285124441513?text=Order ${activeModal.id} Lite)}>LITE - 18K</button>
-<button className="btn-gold" onClick={() => window.open(https://wa.me/6285124441513?text=Order ${activeModal.id} Healthy)}>HEALTHY - 25K</button>
-<button className="btn-gold" onClick={() => window.open(https://wa.me/6285124441513?text=Order ${activeModal.id} Sultan Edition)}>SULTAN - 45K 👑</button>
+<button className="btn-gold" onClick={() => window.open(`https://wa.me/6285124441513?text=Order ${activeModal.id} Lite`)}>LITE - 18K</button>
+<button className="btn-gold" onClick={() => window.open(`https://wa.me/6285124441513?text=Order ${activeModal.id} Healthy`)}>HEALTHY - 25K</button>
+<button className="btn-gold" onClick={() => window.open(`https://wa.me/6285124441513?text=Order ${activeModal.id} Sultan Edition`)}>SULTAN - 45K 👑</button>
 </div>
 </div>
 </div>
@@ -208,7 +208,7 @@ return (
 <img src={dessertModal.img} style={{width:'100%', borderRadius:'10px', marginBottom:'15px'}} />
 <h2 style={{color:'#D4AF37'}}>{dessertModal.title}</h2>
 <p style={{fontSize:'1.5rem', margin:'10px 0'}}>IDR {dessertModal.price}</p>
-<button className="btn-gold" style={{width:'100%'}} onClick={() => window.open(https://wa.me/6285124441513?text=Halo Total Fruit, mau order ${dessertModal.title})}>
+<button className="btn-gold" style={{width:'100%'}} onClick={() => window.open(`https://wa.me/6285124441513?text=Halo Total Fruit, mau order ${dessertModal.title}`)}>
 {t('dessert-modal-btn')}
 </button>
 </div>
@@ -237,7 +237,7 @@ return (
   </svg>
 </a>
 
-</a>  {/* WA FLOAT */}
+{/* WA FLOAT */}
 <a href="https://wa.me/6285124441513" target="_blank" className="wa-float">
 <svg style={{width:'30px', fill:'white'}} viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.405c0 6.555-5.332 11.887-11.887 11.887-2.012 0-3.987-.512-5.741-1.488l-6.244 1.713zm5.862-4.102l.362.216c1.3.774 2.793 1.183 4.317 1.183 4.608 0 8.356-3.748 8.356-8.356 0-2.233-.869-4.332-2.447-5.91s-3.677-2.447-5.91-2.447c-4.607 0-8.355 3.748-8.355 8.356 0 1.638.481 3.232 1.391 4.611l.237.359-1.002 3.66 3.75-.989z"/></svg>
 </a>
