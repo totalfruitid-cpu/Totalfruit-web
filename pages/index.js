@@ -1,23 +1,55 @@
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
 
-export default function Home() {
-  const [active, setActive] = useState(null)
+export default function Dashboard() {
+  const [lang, setLang] = useState('id')
+  const [activeModal, setActiveModal] = useState(null)
+  const [dessertModal, setDessertModal] = useState({show: false, title: '', price: '', img: ''})
 
-  const menu = [
-    { id: 'avocado', name: '🥑 Avocado Series', img: '/Menu-avocado.png' },
-    { id: 'mango', name: '🥭 Mango Series', img: '/Menu-mango.png' },
-    { id: 'banana', name: '🍌 Banana Series', img: '/Menu-banana.png' },
-    { id: 'strawberry', name: '🍓 Strawberry Series', img: '/Menu-strawberry.png' },
+  const translations = {
+    id: {
+      heroTitle: 'TOTAL FRUIT',
+      heroTag: 'Rasakan sehatnya, nikmati kelembutannya.',
+      heroDesc: 'Fresh setiap hari • Tanpa gula tambahan • Creamy & nagih 🤤',
+      heroBtn: 'LIHAT MENU',
+      about: 'TotalFruit adalah brand dessert premium pertama di Cibaliung. Gerobakan rasa sultan dengan buah grade A & kuah signature.',
+      juice: 'JUS SEGAR',
+      dessert: 'SIGNATURE DESSERT',
+      order: 'Pesan Sekarang'
+    },
+    en: {
+      heroTitle: 'TOTAL FRUIT',
+      heroTag: 'Taste the health, feel the cloud.',
+      heroDesc: 'Fresh daily • No added sugar • Creamy & addictive 🤤',
+      heroBtn: 'SEE MENU',
+      about: 'Premium fruit dessert brand with high quality ingredients.',
+      juice: 'JUICE',
+      dessert: 'SIGNATURE DESSERT',
+      order: 'Order Now'
+    }
+  }
+
+  const t = (key) => translations[lang][key]
+
+  const juiceMenu = [
+    { id: 'avocado', name: '🥑 Alpukat', img: '/Menu-avocado.png' },
+    { id: 'mango', name: '🥭 Mangga', img: '/Menu-mango.png' },
+    { id: 'banana', name: '🍌 Pisang', img: '/Menu-banana.png' },
+    { id: 'strawberry', name: '🍓 Stroberi', img: '/Menu-strawberry.png' },
   ]
 
-  const open = (item) => {
-    setActive(item)
+  useEffect(() => {
+    setLang(localStorage.getItem('lang') || 'id')
+  }, [])
+
+  const openJuice = (item) => {
+    setActiveModal(item)
     document.body.style.overflow = 'hidden'
   }
 
-  const close = () => {
-    setActive(null)
+  const closeModal = () => {
+    setActiveModal(null)
+    setDessertModal({show:false})
     document.body.style.overflow = 'auto'
   }
 
@@ -28,175 +60,56 @@ export default function Home() {
       </Head>
 
       <style jsx global>{`
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{
-          background:#000;
-          color:#fff;
-          font-family:'Poppins',sans-serif;
-        }
-
-        .container{
-          max-width:700px;
-          margin:auto;
-          padding:20px;
-          text-align:center;
-        }
-
-        h1{
-          font-size:2.3rem;
-          color:#FFD700;
-          margin-bottom:10px;
-        }
-
-        .hero-img{
-          width:100%;
-          border-radius:20px;
-          margin:20px 0;
-          box-shadow:0 10px 40px rgba(255,215,0,0.25);
-          animation:fadeIn 1s ease;
-        }
-
-        .btn{
-          background:linear-gradient(90deg,#FFD700,#FFA500);
-          color:#000;
-          padding:14px 25px;
-          border-radius:30px;
-          font-weight:bold;
-          display:inline-block;
-          margin-top:10px;
-          text-decoration:none;
-          transition:0.3s;
-        }
-
-        .btn:hover{
-          transform:scale(1.05);
-        }
-
-        .menu-card{
-          background:#111;
-          border:1px solid #FFD700;
-          padding:15px;
-          border-radius:15px;
-          margin:12px 0;
-          display:flex;
-          align-items:center;
-          gap:10px;
-          cursor:pointer;
-          transition:0.3s;
-        }
-
-        .menu-card:hover{
-          transform:scale(1.03);
-          background:#1a1a1a;
-        }
-
-        .float{
-          position:fixed;
-          right:20px;
-          width:60px;
-          height:60px;
-          border-radius:50%;
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          z-index:999;
-          transition:0.3s;
-        }
-
-        .float:hover{
-          transform:scale(1.1);
-        }
-
-        .promo{
-          background:#FFD700;
-          color:#000;
-          padding:12px;
-          text-align:center;
-          font-weight:bold;
-          position:sticky;
-          top:0;
-          z-index:1000;
-        }
-
-        .fade{
-          animation:fadeIn 0.8s ease;
-        }
-
-        @keyframes fadeIn{
-          from{opacity:0;transform:translateY(20px)}
-          to{opacity:1;transform:translateY(0)}
-        }
-
-        .modal{
-          position:fixed;
-          top:0;left:0;
-          width:100%;
-          height:100%;
-          background:rgba(0,0,0,0.95);
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          z-index:9999;
-        }
-
-        .modal-box{
-          background:#111;
-          padding:25px;
-          border-radius:20px;
-          border:1px solid #FFD700;
-          width:90%;
-          max-width:400px;
-          text-align:center;
-        }
-
+        body{margin:0;background:#000;color:#fff;font-family:sans-serif}
+        .container{max-width:700px;margin:auto;padding:20px;text-align:center}
+        .btn{background:gold;color:#000;padding:12px 20px;border-radius:20px;font-weight:bold}
+        .menu-btn{background:#111;color:gold;padding:15px;border-radius:12px;margin:10px 0;display:flex;align-items:center;gap:10px}
+        .float{position:fixed;right:20px;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:999}
       `}</style>
 
       {/* PROMO */}
-      <div className="promo">
-        🔥 Diskon 10% via TotalGo — Buruan!
+      <div style={{background:'gold',color:'#000',padding:'10px',textAlign:'center',fontWeight:'bold'}}>
+        🔥 Diskon 10% via TotalGo
       </div>
 
-      <div className="container fade">
-
+      <div className="container">
         {/* HERO */}
-        <h1>👑 TOTAL FRUIT</h1>
-        <p style={{color:'#aaa'}}>Taste the health, feel the cloud</p>
+        <h1>{t('heroTitle')}</h1>
+        <p>{t('heroTag')}</p>
 
-        <img src="/hero-product.png" className="hero-img" />
+        <img src="/hero-product.png" style={{width:'100%',borderRadius:'20px'}} />
 
-        <p style={{marginTop:'10px'}}>
-          Fresh setiap hari • Tanpa gula tambahan • Creamy & nagih 🤤
+        <p>{t('heroDesc')}</p>
+        <a href="#menu" className="btn">{t('heroBtn')}</a>
+
+        {/* TRUST */}
+        <p style={{marginTop:'20px',color:'#aaa'}}>
+          ⭐ 100+ pelanggan puas
         </p>
 
-        <a href="#menu" className="btn">LIHAT MENU</a>
-
-        <p style={{marginTop:'20px',color:'#bbb'}}>
-          ⭐ 100+ pelanggan puas • Repeat order tinggi
-        </p>
+        {/* ABOUT */}
+        <p>{t('about')}</p>
 
         {/* MENU */}
-        <h2 id="menu" style={{marginTop:'40px'}}>MENU FAVORIT</h2>
+        <h2 id="menu">{t('juice')}</h2>
 
-        {menu.map(item => (
-          <div key={item.id} className="menu-card" onClick={()=>open(item)}>
-            <img src={item.img} width="45" style={{borderRadius:'10px'}} />
+        {juiceMenu.map((item)=>(
+          <div key={item.id} className="menu-btn" onClick={()=>openJuice(item)}>
+            <img src={item.img} width="40"/>
             {item.name}
           </div>
         ))}
 
+        <h2>{t('dessert')}</h2>
+
+        <div className="menu-btn">🥑🥭 Es Teler Sultan</div>
       </div>
 
       {/* MODAL */}
-      {active && (
-        <div className="modal" onClick={close}>
-          <div className="modal-box" onClick={(e)=>e.stopPropagation()}>
-            <h2>{active.name}</h2>
-            <img src={active.img} style={{width:'100%',borderRadius:'10px',margin:'15px 0'}}/>
-
-            <a className="btn" href={`https://wa.me/6285124441513?text=Order ${active.name}`}>
-              Pesan Sekarang
-            </a>
-          </div>
+      {activeModal && (
+        <div style={{position:'fixed',top:0,left:0,width:'100%',height:'100%',background:'#000'}}>
+          <h2>{activeModal.name}</h2>
+          <button onClick={closeModal}>Close</button>
         </div>
       )}
 
@@ -204,7 +117,7 @@ export default function Home() {
       <a href="https://tiktok.com/@totalfruit.id" target="_blank"
         className="float"
         style={{bottom:'90px',background:'#000'}}>
-        <svg viewBox="0 0 24 24" width="28" fill="white">
+        <svg viewBox="0 0 24 24" width="26" fill="white">
           <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.208h-3.27v13.593a2.998 2.998 0 1 1-2.998-2.998c.2 0 .394.02.583.057v-3.31a6.308 6.308 0 0 0-.583-.028A6.308 6.308 0 1 0 15.858 16V8.687a8.07 8.07 0 0 0 4.73 1.553V6.686z"/>
         </svg>
       </a>
@@ -215,7 +128,6 @@ export default function Home() {
         style={{bottom:'20px',background:'#25D366'}}>
         WA
       </a>
-
     </>
   )
 }
