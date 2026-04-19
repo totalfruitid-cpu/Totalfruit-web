@@ -207,7 +207,7 @@ footer{background:#050505;padding:60px 20px 30px;text-align:center;border-top:1p
 
 <footer>
   <img src="/logo.png" alt="Total Fruit" className="footer-logo-img" style={{height:'80px', marginBottom:'12px'}} />
-<a href="https://instagram.com/totaldruit.id" target="_blank" style={{color:'#FFD700', fontSize:'16px', textDecoration:'none', display:'block', marginBottom:'15px'}}>
+<a href="https://instagram.com/totalfruit.id" target="_blank" style={{color:'#FFD700', fontSize:'16px', textDecoration:'none', display:'block', marginBottom:'15px'}}>
 @totaldruit.id
 </a>
 
@@ -215,7 +215,7 @@ footer{background:#050505;padding:60px 20px 30px;text-align:center;border-top:1p
     Pariuk Nangkub Harmoni Land<br/>
     Cibaliung, Pandeglang, Banten
   </p>
-  <p style={{fontSize:'0.65rem', color:'#444', letterSpacing:'2px'}}>
+  <p style={{fontSize:'0.65rem', color:'#bbb', letterSpacing:'2px'}}>
     © 2026 TOTAL FRUIT
   </p>
 </footer>
