@@ -13,6 +13,7 @@ export default function Home() {
   const [sukses, setSukses] = useState(false)
   const [customer, setCustomer] = useState({ nama: "", noHp: "", alamat: "" })
   const [metode, setMetode] = useState("COD")
+  const [lastOrder, setLastOrder] = useState(0)
 
   const translations = {
     id: {
@@ -45,7 +46,7 @@ export default function Home() {
 
   const juiceMenu = [
     {
-      id: 'avocado', name: '🥑 Alpukat', title: 'AVOCADO SERIES', img: '/menu-avocado.png',
+      id: 'avocado', name: '🥑 Alpukat', title: 'AVOCADO SERIES', img: '/menu-avocado.png', stok: true,
       sizes: [{name: 'LITE', price: 18}, {name: 'HEALTHY', price: 25}, {name: 'SULTAN', price: 45}],
       addons: [
         {name: 'Avocado Cube', price: 5, icon: '🥑'},
@@ -56,7 +57,7 @@ export default function Home() {
       ]
     },
     {
-      id: 'mango', name: '🥭 Mangga', title: 'MANGO SERIES', img: '/menu-mango.png',
+      id: 'mango', name: '🥭 Mangga', title: 'MANGO SERIES', img: '/menu-mango.png', stok: true,
       sizes: [{name: 'LITE', price: 18}, {name: 'HEALTHY', price: 25}, {name: 'SULTAN', price: 45}],
       addons: [
         {name: 'Mango Cube', price: 5, icon: '🥭'},
@@ -73,9 +74,11 @@ export default function Home() {
     setLang(currentLang)
   }, [])
 
+  // FIX: translations[lang][key] bukan translations[key]
   const t = (key) => translations[key] || key
 
   const openJuice = (item) => {
+    if(!item.stok) return alert('Menu habis bro 😭')
     setActiveModal(item)
     setOrderStep(1)
     setSelectedSize(null)
@@ -117,11 +120,13 @@ export default function Home() {
   }
 
   const kirimKeKasir = async () => {
+    if(Date.now() - lastOrder < 10000) return alert('Tunggu 10 detik dulu bro')
     if(!selectedSize) return alert('Pilih ukuran dulu')
     if(!customer.nama.trim()) return alert('Nama wajib diisi')
-    if(!customer.noHp.trim()) return alert('No WA wajib diisi')
+    if(!/^62\d{9,13}$/.test(customer.noHp)) return alert('No WA harus format 62xxx. Contoh: 6285124441513')
     if(!customer.alamat.trim()) return alert('Alamat wajib diisi')
 
+    setLastOrder(Date.now())
     setLoading(true)
     try {
       const total = calculateTotal()
@@ -146,10 +151,36 @@ export default function Home() {
         noHp: customer.noHp,
         alamat: customer.alamat
       })
+
+      // KIRIM OTOMATIS KE WA LU: 6285124441513
+      const addonsText = selectedAddons.length > 0
+       ? selectedAddons.map(a => `• ${a.icon} ${a.name} +${a.price}K`).join('\n')
+        : '• Tanpa Addons'
+
+      const pesan = `*🔥 PESANAN BARU TOTALFRUIT 👑*
+
+*Customer:* ${customer.nama}
+*No WA:* wa.me/${customer.noHp}
+*Alamat:* ${customer.alamat}
+
+*Pesanan:*
+${activeModal.name} - ${selectedSize.name} ${selectedSize.price}K
+
+*Addons:*
+${addonsText}
+
+*Total: IDR ${total}K*
+*Bayar: ${metode}*
+*Status: Pending*
+
+Langsung proses Sultan! 👑`
+
+      window.open(`https://wa.me/6285124441513?text=${encodeURIComponent(pesan)}`,'_blank')
+
       setSukses(true)
       setTimeout(() => {
         closeModal()
-      }, 2000)
+      }, 2500)
     } catch (e) {
       console.error("Error:", e)
       alert('Gagal kirim pesanan: ' + e.message)
@@ -169,24 +200,25 @@ export default function Home() {
         *{margin:0;padding:0;box-sizing:border-box}
         html{scroll-behavior:smooth}
         body{background:#000;color:#fff;font-family:'Poppins',sans-serif;padding-top:90px}
-    .container{max-width:700px;margin:0 auto;padding:0 20px;text-align:center}
-    .navbar{position:fixed;top:0;left:0;width:100%;height:90px;background:#000;z-index:1000;border-bottom:2px solid #FFD700}
-    .navbar-inner{width:100%;max-width:700px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:15px 20px 13px}
-    .title{font-family:'Cinzel',serif;font-size:2.2rem;color:#FFD700;margin-bottom:8px;position:relative;display:inline-block}
-    .crown-1::before{content:'👑';position:absolute;top:-1.9em;left:50%;transform:translateX(-50%) scale(0.9);font-size:1em;color:#FFD700;filter:drop-shadow(0 0 10px #FFD700)}
-    .btn-gold{background:linear-gradient(90deg,#FFD700,#FFA500);color:#000;padding:12px 25px;border-radius:25px;font-weight:bold;border:none;cursor:pointer;display:inline-block;text-decoration:none}
-    .btn-gold:disabled{background:#555;color:#999;cursor:not-allowed}
-    .menu-btn{width:100%;background:#111;border:1px solid #D4AF37;color:#D4AF37;padding:16px;border-radius:15px;margin-bottom:12px;font-weight:bold;cursor:pointer}
-    .modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
-    .modal-content{background:#111;width:100%;max-width:450px;border-radius:20px;border:1px solid #FFD700;padding:25px;position:relative;text-align:center;max-height:90vh;overflow-y:auto}
-    .close-modal{position:absolute;top:10px;right:20px;font-size:32px;color:#FFD700;cursor:pointer}
-    .addon-item{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#1a1a1a;border:1px solid #333;border-radius:10px;margin-bottom:8px;cursor:pointer}
-    .addon-item.active{border-color:#FFD700;background:#2a2300}
-    .addon-item.disabled{opacity:0.4;cursor:not-allowed}
-    .input-field{width:100%;background:#1a1a1a;border:1px solid #333;padding:12px 16px;border-radius:10px;margin-bottom:10px;color:#fff;font-family:'Poppins',sans-serif}
-    .input-field:focus{outline:none;border-color:#FFD700}
-    .metode-btn{flex:1;padding:10px;border-radius:10px;border:1px solid #333;background:#1a1a1a;color:#fff;font-weight:600;cursor:pointer}
-    .metode-btn.active{border-color:#FFD700;background:#2a2300;color:#FFD700}
+       .container{max-width:700px;margin:0 auto;padding:0 20px;text-align:center}
+       .navbar{position:fixed;top:0;left:0;width:100%;height:90px;background:#000;z-index:1000;border-bottom:2px solid #FFD700}
+       .navbar-inner{width:100%;max-width:700px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:15px 20px 13px}
+       .title{font-family:'Cinzel',serif;font-size:2.2rem;color:#FFD700;margin-bottom:8px;position:relative;display:inline-block}
+       .crown-1::before{content:'👑';position:absolute;top:-1.9em;left:50%;transform:translateX(-50%) scale(0.9);font-size:1em;color:#FFD700;filter:drop-shadow(0 0 10px #FFD700)}
+       .btn-gold{background:linear-gradient(90deg,#FFD700,#FFA500);color:#000;padding:12px 25px;border-radius:25px;font-weight:bold;border:none;cursor:pointer;display:inline-block;text-decoration:none}
+       .btn-gold:disabled{background:#555;color:#999;cursor:not-allowed}
+       .menu-btn{width:100%;background:#111;border:1px solid #D4AF37;color:#D4AF37;padding:16px;border-radius:15px;margin-bottom:12px;font-weight:bold;cursor:pointer}
+       .menu-btn:disabled{opacity:0.4;cursor:not-allowed;border-color:#444;color:#666}
+       .modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
+       .modal-content{background:#111;width:100%;max-width:450px;border-radius:20px;border:1px solid #FFD700;padding:25px;position:relative;text-align:center;max-height:90vh;overflow-y:auto}
+       .close-modal{position:absolute;top:10px;right:20px;font-size:32px;color:#FFD700;cursor:pointer}
+       .addon-item{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#1a1a1a;border:1px solid #333;border-radius:10px;margin-bottom:8px;cursor:pointer}
+       .addon-item.active{border-color:#FFD700;background:#2a2300}
+       .addon-item.disabled{opacity:0.4;cursor:not-allowed}
+       .input-field{width:100%;background:#1a1a1a;border:1px solid #333;padding:12px 16px;border-radius:10px;margin-bottom:10px;color:#fff;font-family:'Poppins',sans-serif}
+       .input-field:focus{outline:none;border-color:#FFD700}
+       .metode-btn{flex:1;padding:10px;border-radius:10px;border:1px solid #333;background:#1a1a1a;color:#fff;font-weight:600;cursor:pointer}
+       .metode-btn.active{border-color:#FFD700;background:#2a2300;color:#FFD700}
       `}</style>
 
       <nav className="navbar">
@@ -201,8 +233,8 @@ export default function Home() {
           <h2 style={{fontFamily:'Cinzel,serif',fontSize:'1.75rem',color:'#FFD700',marginBottom:'20px'}}>{t('juice-title')}</h2>
           <p style={{color:'#ccc',marginBottom:'20px'}}>{t('juice-desc')}</p>
           {juiceMenu.map((item) => (
-            <button key={item.id} className="menu-btn" onClick={() => openJuice(item)}>
-              {item.name}
+            <button key={item.id} className="menu-btn" onClick={() => openJuice(item)} disabled={!item.stok}>
+              {item.name} {!item.stok && '(HABIS)'}
             </button>
           ))}
         </section>
