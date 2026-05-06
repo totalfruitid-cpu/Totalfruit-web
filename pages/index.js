@@ -68,6 +68,7 @@ export default function Home() {
     setLang(currentLang)
   }, [])
 
+  // INI YG BENER BRO - PAKE [lang]
   const t = (key) => translations[key] || key
 
   const openJuice = (item) => {
@@ -146,7 +147,7 @@ export default function Home() {
       })
 
       const addonsText = selectedAddons.length > 0
-      ? selectedAddons.map(a => `• ${a.icon} ${a.name} +${a.price}K`).join('\n')
+     ? selectedAddons.map(a => `• ${a.icon} ${a.name} +${a.price}K`).join('\n')
         : '• Tanpa Addons'
 
       const pesan = `*🔥 PESANAN BARU TOTALFRUIT 👑*
@@ -192,25 +193,25 @@ Langsung proses Sultan! 👑`
         *{margin:0;padding:0;box-sizing:border-box}
         html{scroll-behavior:smooth}
         body{background:#000;color:#fff;font-family:'Poppins',sans-serif;padding-top:90px}
-   .container{max-width:700px;margin:0 auto;padding:0 20px;text-align:center}
-   .navbar{position:fixed;top:0;left:0;width:100%;height:90px;background:#000;z-index:1000;border-bottom:2px solid #FFD700}
-   .navbar-inner{width:100%;max-width:700px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:15px 20px 13px}
-   .title{font-family:'Cinzel',serif;font-size:2.2rem;color:#FFD700;margin-bottom:8px;position:relative;display:inline-block}
-   .crown-1::before{content:'👑';position:absolute;top:-1.9em;left:50%;transform:translateX(-50%) scale(0.9);font-size:1em;color:#FFD700;filter:drop-shadow(0 0 10px #FFD700)}
-   .btn-gold{background:linear-gradient(90deg,#FFD700,#FFA500);color:#000;padding:12px 25px;border-radius:25px;font-weight:bold;border:none;cursor:pointer;display:inline-block;text-decoration:none}
-   .btn-gold:disabled{background:#555;color:#999;cursor:not-allowed}
-   .menu-btn{width:100%;background:#111;border:1px solid #D4AF37;color:#D4AF37;padding:16px;border-radius:15px;margin-bottom:12px;font-weight:bold;cursor:pointer}
-   .menu-btn:disabled{opacity:0.4;cursor:not-allowed;border-color:#444;color:#666}
-   .modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
-   .modal-content{background:#111;width:100%;max-width:450px;border-radius:20px;border:1px solid #FFD700;padding:25px;position:relative;text-align:center;max-height:90vh;overflow-y:auto}
-   .close-modal{position:absolute;top:10px;right:20px;font-size:32px;color:#FFD700;cursor:pointer}
-   .addon-item{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#1a1a1a;border:1px solid #333;border-radius:10px;margin-bottom:8px;cursor:pointer}
-   .addon-item.active{border-color:#FFD700;background:#2a2300}
-   .addon-item.disabled{opacity:0.4;cursor:not-allowed}
-   .input-field{width:100%;background:#1a1a1a;border:1px solid #333;padding:12px 16px;border-radius:10px;margin-bottom:10px;color:#fff;font-family:'Poppins',sans-serif}
-   .input-field:focus{outline:none;border-color:#FFD700}
-   .metode-btn{flex:1;padding:10px;border-radius:10px;border:1px solid #333;background:#1a1a1a;color:#fff;font-weight:600;cursor:pointer}
-   .metode-btn.active{border-color:#FFD700;background:#2a2300;color:#FFD700}
+ .container{max-width:700px;margin:0 auto;padding:0 20px;text-align:center}
+ .navbar{position:fixed;top:0;left:0;width:100%;height:90px;background:#000;z-index:1000;border-bottom:2px solid #FFD700}
+ .navbar-inner{width:100%;max-width:700px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:15px 20px 13px}
+ .title{font-family:'Cinzel',serif;font-size:2.2rem;color:#FFD700;margin-bottom:8px;position:relative;display:inline-block}
+ .crown-1::before{content:'👑';position:absolute;top:-1.9em;left:50%;transform:translateX(-50%) scale(0.9);font-size:1em;color:#FFD700;filter:drop-shadow(0 0 10px #FFD700)}
+ .btn-gold{background:linear-gradient(90deg,#FFD700,#FFA500);color:#000;padding:12px 25px;border-radius:25px;font-weight:bold;border:none;cursor:pointer;display:inline-block;text-decoration:none}
+ .btn-gold:disabled{background:#555;color:#999;cursor:not-allowed}
+ .menu-btn{width:100%;background:#111;border:1px solid #D4AF37;color:#D4AF37;padding:16px;border-radius:15px;margin-bottom:12px;font-weight:bold;cursor:pointer}
+ .menu-btn:disabled{opacity:0.4;cursor:not-allowed;border-color:#444;color:#666}
+ .modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
+ .modal-content{background:#111;width:100%;max-width:450px;border-radius:20px;border:1px solid #FFD700;padding:25px;position:relative;text-align:center;max-height:90vh;overflow-y:auto}
+ .close-modal{position:absolute;top:10px;right:20px;font-size:32px;color:#FFD700;cursor:pointer}
+ .addon-item{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#1a1a1a;border:1px solid #333;border-radius:10px;margin-bottom:8px;cursor:pointer}
+ .addon-item.active{border-color:#FFD700;background:#2a2300}
+ .addon-item.disabled{opacity:0.4;cursor:not-allowed}
+ .input-field{width:100%;background:#1a1a1a;border:1px solid #333;padding:12px 16px;border-radius:10px;margin-bottom:10px;color:#fff;font-family:'Poppins',sans-serif}
+ .input-field:focus{outline:none;border-color:#FFD700}
+ .metode-btn{flex:1;padding:10px;border-radius:10px;border:1px solid #333;background:#1a1a1a;color:#fff;font-weight:600;cursor:pointer}
+ .metode-btn.active{border-color:#FFD700;background:#2a2300;color:#FFD700}
       `}</style>
 
       <nav className="navbar">
