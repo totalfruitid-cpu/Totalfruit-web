@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
+import Script from 'next/script' // TAMBAHIN INI
 
 export default function Home() {
   const [lang, setLang] = useState('id')
@@ -9,6 +10,8 @@ export default function Home() {
   const [orderStep, setOrderStep] = useState(1)
   const [selectedSize, setSelectedSize] = useState(null)
   const [selectedAddons, setSelectedAddons] = useState([])
+
+  const GA_ID = 'G-XXXXXXXXXX' // GANTI INI PAKE ID LU
 
   const translations = {
     en: {
@@ -159,11 +162,24 @@ export default function Home() {
       : '';
     const total = calculateTotal();
     const text = `Halo Total Fruit, mau order ${activeModal.name} ${selectedSize.name}${addonText}%0ATotal: IDR ${total}K`;
+
+    // TRACKING EVENT KE GA4
+    if (window.gtag) {
+      window.gtag('event', 'purchase', {
+        currency: 'IDR',
+        value: total,
+        items: [{
+          item_name: `${activeModal.name} ${selectedSize.name}`,
+          price: total,
+          quantity: 1
+        }]
+      });
+    }
+
     window.open(`https://wa.me/6285124441513?text=${text}`)
   }
 
-  // INI YANG BENER BRO, ADA [lang] NYA
-  const t = (key) => translations[lang][key] || key
+  const t = (key) => translations[key] || key
 
   return (
     <>
@@ -173,36 +189,47 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
+      {/* GOOGLE ANALYTICS */}
+      <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_ID}');
+        `}
+      </Script>
+
       <style jsx global>{`
         *{margin:0;padding:0;box-sizing:border-box}
         html{scroll-behavior:smooth}
         body{background:#000;color:#fff;font-family:'Poppins',sans-serif;padding-top:90px}
-     .container{max-width:700px;margin:0 auto;padding:0 20px;text-align:center}
-     .navbar{position:fixed;top:0;left:0;width:100%;height:90px;background:#000;z-index:1000;border-bottom:2px solid #FFD700}
-     .navbar-inner{width:100%;max-width:700px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:15px 20px 13px;position:relative}
-     .navbar-logo{height:45px}
-     .nav-links{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:20px;font-size:12px;text-transform:uppercase;font-weight:600;align-items:center}
-     .nav-links a{color:#ccc;text-decoration:none}
-     .lang-box{position:absolute;right:20px;display:flex;gap:6px;align-items:center}
-     .lang-btn{cursor:pointer;transition:0.3s;font-size:11px;font-weight:600}
+    .container{max-width:700px;margin:0 auto;padding:0 20px;text-align:center}
+    .navbar{position:fixed;top:0;left:0;width:100%;height:90px;background:#000;z-index:1000;border-bottom:2px solid #FFD700}
+    .navbar-inner{width:100%;max-width:700px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:15px 20px 13px;position:relative}
+    .navbar-logo{height:45px}
+    .nav-links{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:20px;font-size:12px;text-transform:uppercase;font-weight:600;align-items:center}
+    .nav-links a{color:#ccc;text-decoration:none}
+    .lang-box{position:absolute;right:20px;display:flex;gap:6px;align-items:center}
+    .lang-btn{cursor:pointer;transition:0.3s;font-size:11px;font-weight:600}
         section{padding:50px 0;text-align:center}
         section h2{font-family:'Cinzel',serif;font-size:1.75rem;color:#FFD700;margin-bottom:20px;width:100%}
         section p{color:#ccc;line-height:1.6;margin-bottom:20px;max-width:100%}
-     .hero{padding-top:85px}
-     .title{font-family:'Cinzel',serif;font-size:2.2rem;color:#FFD700;margin-bottom:8px;position:relative;display:inline-block}
-     .crown-1::before{content:'👑';position:absolute;top:-1.9em;left:50%;transform:translateX(-50%) scale(0.9);font-size:1em;color:#FFD700;filter:drop-shadow(0 0 10px #FFD700)}
-     .btn-gold{background:linear-gradient(90deg,#FFD700,#FFA500);color:#000;padding:12px 25px;border-radius:25px;font-weight:bold;border:none;cursor:pointer;display:inline-block;text-decoration:none}
-     .menu-btn{width:100%;background:#111;border:1px solid #D4AF37;color:#D4AF37;padding:16px;border-radius:15px;margin-bottom:12px;font-weight:bold;cursor:pointer}
-     .modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
-     .modal-content{background:#111;width:100%;max-width:450px;border-radius:20px;border:1px solid #FFD700;padding:25px;position:relative;text-align:center;max-height:90vh;overflow-y:auto}
-     .close-modal{position:absolute;top:10px;right:20px;font-size:32px;color:#FFD700;cursor:pointer}
-     .addon-item{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#1a1a1a;border:1px solid #333;border-radius:10px;margin-bottom:8px;cursor:pointer}
-     .addon-item.active{border-color:#FFD700;background:#2a2300}
-     .addon-item.disabled{opacity:0.4;cursor:not-allowed}
+    .hero{padding-top:85px}
+    .title{font-family:'Cinzel',serif;font-size:2.2rem;color:#FFD700;margin-bottom:8px;position:relative;display:inline-block}
+    .crown-1::before{content:'👑';position:absolute;top:-1.9em;left:50%;transform:translateX(-50%) scale(0.9);font-size:1em;color:#FFD700;filter:drop-shadow(0 0 10px #FFD700)}
+    .btn-gold{background:linear-gradient(90deg,#FFD700,#FFA500);color:#000;padding:12px 25px;border-radius:25px;font-weight:bold;border:none;cursor:pointer;display:inline-block;text-decoration:none}
+    .menu-btn{width:100%;background:#111;border:1px solid #D4AF37;color:#D4AF37;padding:16px;border-radius:15px;margin-bottom:12px;font-weight:bold;cursor:pointer}
+    .modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
+    .modal-content{background:#111;width:100%;max-width:450px;border-radius:20px;border:1px solid #FFD700;padding:25px;position:relative;text-align:center;max-height:90vh;overflow-y:auto}
+    .close-modal{position:absolute;top:10px;right:20px;font-size:32px;color:#FFD700;cursor:pointer}
+    .addon-item{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#1a1a1a;border:1px solid #333;border-radius:10px;margin-bottom:8px;cursor:pointer}
+    .addon-item.active{border-color:#FFD700;background:#2a2300}
+    .addon-item.disabled{opacity:0.4;cursor:not-allowed}
         footer{background:#050505;padding:60px 20px 30px;text-align:center;border-top:1px solid #D4AF37;margin-top:40px}
-     .footer-logo-img{height:45px;margin-bottom:20px}
-     .social-btn{color:#D4AF37;text-decoration:none;font-size:0.75rem;border:1px solid #D4AF37;padding:8px 16px;border-radius:5px;margin:0 5px}
-     .wa-float{position:fixed;bottom:25px;right:25px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(37,211,102,0.4);z-index:999}
+    .footer-logo-img{height:45px;margin-bottom:20px}
+    .social-btn{color:#D4AF37;text-decoration:none;font-size:0.75rem;border:1px solid #D4AF37;padding:8px 16px;border-radius:5px;margin:0 5px}
+    .wa-float{position:fixed;bottom:25px;right:25px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(37,211,102,0.4);z-index:999}
       `}</style>
 
       <nav className="navbar">
